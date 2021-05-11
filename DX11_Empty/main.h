@@ -13,7 +13,7 @@
 #include <d3d11.h>
 #include <d3dx9.h>
 #include <d3dx11.h>
-#include <DirectXMath.h>
+
 
 #pragma warning(pop)
 
@@ -23,6 +23,8 @@
 #pragma comment (lib, "d3d11.lib")
 #pragma comment (lib, "d3dx9.lib")
 #pragma comment (lib, "d3dx11.lib")
+
+#include <DirectXMath.h>
 
 
 #define SCREEN_WIDTH	(960)

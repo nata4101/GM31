@@ -6,10 +6,10 @@
 
 struct VERTEX_3D
 {
-    D3DXVECTOR3 Position;
-    D3DXVECTOR3 Normal;
-    D3DXVECTOR4 Diffuse;
-    D3DXVECTOR2 TexCoord;
+	XMFLOAT3 Position;
+	XMFLOAT3 Normal;
+    XMFLOAT4 Diffuse;
+	XMFLOAT2 TexCoord;
 };
 
 
@@ -30,7 +30,7 @@ struct LIGHT
 {
 	BOOL		Enable;
 	BOOL		Dummy[3];
-	D3DXVECTOR4	Direction;
+	XMVECTOR	Direction;
 	D3DXCOLOR	Diffuse;
 	D3DXCOLOR	Ambient;
 };

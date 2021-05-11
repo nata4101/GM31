@@ -3,6 +3,7 @@
 #include "renderer.h"
 #include <io.h>
 
+using namespace DirectX;
 
 D3D_FEATURE_LEVEL       Renderer::m_FeatureLevel = D3D_FEATURE_LEVEL_11_0;
 
@@ -219,8 +220,8 @@ void Renderer::Init()
 	// ÉâÉCÉgèâä˙âª
 	LIGHT light{};
 	light.Enable = true;
-	light.Direction = D3DXVECTOR4(1.0f, -1.0f, 1.0f, 0.0f);
-	D3DXVec4Normalize(&light.Direction, &light.Direction);
+	light.Direction = XMVectorSet(1.0f, -1.0f, 1.0f, 0.0f);
+	light.Direction = XMVector4Normalize(light.Direction);
 	light.Ambient = D3DXCOLOR(0.2f, 0.2f, 0.2f, 1.0f);
 	light.Diffuse = D3DXCOLOR(1.0f, 1.0f, 1.0f, 1.0f);
 	SetLight(light);
