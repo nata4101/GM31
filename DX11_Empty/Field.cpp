@@ -93,15 +93,7 @@ void CField::Draw()
 	trans = XMMatrixTranslation(m_position.x, m_position.y, m_position.z);
 	world = scale * rot * trans;
 
-	D3DXMATRIX buff;
-
-	for (int i = 0; i < 4; i++) {
-		for (int j = 0; j < 4; j++) {
-			buff.m[i][j] = world.r[i].m128_f32[j];
-		}
-	}
-
-	Renderer::SetWorldMatrix(&buff);
+	Renderer::SetWorldMatrix(&world);
 
 	//頂点バッファ設定
 	UINT stride = sizeof(VERTEX_3D);
@@ -115,7 +107,7 @@ void CField::Draw()
 	//マテリアル設定
 	MATERIAL material{};
 	ZeroMemory(&material, sizeof(material));
-	material.Diffuse = D3DXCOLOR(1, 1, 1, 1);
+	material.Diffuse = XMFLOAT4(1, 1, 1, 1);
 	Renderer::SetMaterial(material);
 
 	//テクスチャ設定

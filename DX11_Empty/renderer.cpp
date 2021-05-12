@@ -4,6 +4,7 @@
 #include <io.h>
 
 using namespace DirectX;
+using namespace PackedVector;
 
 D3D_FEATURE_LEVEL       Renderer::m_FeatureLevel = D3D_FEATURE_LEVEL_11_0;
 
@@ -222,16 +223,16 @@ void Renderer::Init()
 	light.Enable = true;
 	light.Direction = XMVectorSet(1.0f, -1.0f, 1.0f, 0.0f);
 	light.Direction = XMVector4Normalize(light.Direction);
-	light.Ambient = D3DXCOLOR(0.2f, 0.2f, 0.2f, 1.0f);
-	light.Diffuse = D3DXCOLOR(1.0f, 1.0f, 1.0f, 1.0f);
+	light.Ambient = XMFLOAT4(0.2f, 0.2f, 0.2f, 1.0f);
+	light.Diffuse = XMFLOAT4(1.0f, 1.0f, 1.0f, 1.0f);
 	SetLight(light);
 
 
 
 	// ƒ}ƒeƒŠƒAƒ‹‰Šú‰»
 	MATERIAL material{};
-	material.Diffuse = D3DXCOLOR(1.0f, 1.0f, 1.0f, 1.0f);
-	material.Ambient = D3DXCOLOR(1.0f, 1.0f, 1.0f, 1.0f);
+	material.Diffuse = XMFLOAT4(1.0f, 1.0f, 1.0f, 1.0f);
+	material.Ambient = XMFLOAT4(1.0f, 1.0f, 1.0f, 1.0f);
 	SetMaterial(material);
 
 
@@ -309,24 +310,24 @@ void Renderer::SetWorldViewProjection2D()
 }
 
 
-void Renderer::SetWorldMatrix( D3DXMATRIX* WorldMatrix )
+void Renderer::SetWorldMatrix( XMMATRIX* WorldMatrix )
 {
-	D3DXMATRIX world;
-	D3DXMatrixTranspose(&world, WorldMatrix);
+	XMMATRIX world;
+	world = XMMatrixTranspose(*WorldMatrix);
 	m_DeviceContext->UpdateSubresource(m_WorldBuffer, 0, NULL, &world, 0, 0);
 }
 
-void Renderer::SetViewMatrix( D3DXMATRIX* ViewMatrix )
+void Renderer::SetViewMatrix( XMMATRIX* ViewMatrix )
 {
-	D3DXMATRIX view;
-	D3DXMatrixTranspose(&view, ViewMatrix);
+	XMMATRIX view;
+	view = XMMatrixTranspose(*ViewMatrix);
 	m_DeviceContext->UpdateSubresource(m_ViewBuffer, 0, NULL, &view, 0, 0);
 }
 
-void Renderer::SetProjectionMatrix( D3DXMATRIX* ProjectionMatrix )
+void Renderer::SetProjectionMatrix( XMMATRIX* ProjectionMatrix )
 {
-	D3DXMATRIX projection;
-	D3DXMatrixTranspose(&projection, ProjectionMatrix);
+	XMMATRIX projection;
+	projection = XMMatrixTranspose(*ProjectionMatrix);
 	m_DeviceContext->UpdateSubresource(m_ProjectionBuffer, 0, NULL, &projection, 0, 0);
 }
 

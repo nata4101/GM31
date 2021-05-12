@@ -1,8 +1,5 @@
 #pragma once
-
-
-
-
+using namespace DirectX;
 
 struct VERTEX_3D
 {
@@ -16,10 +13,10 @@ struct VERTEX_3D
 
 struct MATERIAL
 {
-	D3DXCOLOR	Ambient;
-	D3DXCOLOR	Diffuse;
-	D3DXCOLOR	Specular;
-	D3DXCOLOR	Emission;
+	XMFLOAT4	Ambient;
+	XMFLOAT4	Diffuse;
+	XMFLOAT4	Specular;
+	XMFLOAT4	Emission;
 	float		Shininess;
 	float		Dummy[3];
 };
@@ -31,8 +28,8 @@ struct LIGHT
 	BOOL		Enable;
 	BOOL		Dummy[3];
 	XMVECTOR	Direction;
-	D3DXCOLOR	Diffuse;
-	D3DXCOLOR	Ambient;
+	XMFLOAT4	Diffuse;
+	XMFLOAT4	Ambient;
 };
 
 
@@ -70,9 +67,9 @@ public:
 
 	static void SetDepthEnable(bool Enable);
 	static void SetWorldViewProjection2D();
-	static void SetWorldMatrix(D3DXMATRIX* WorldMatrix);
-	static void SetViewMatrix(D3DXMATRIX* ViewMatrix);
-	static void SetProjectionMatrix(D3DXMATRIX* ProjectionMatrix);
+	static void SetWorldMatrix(XMMATRIX* WorldMatrix);
+	static void SetViewMatrix(XMMATRIX* ViewMatrix);
+	static void SetProjectionMatrix(XMMATRIX* ProjectionMatrix);
 	static void SetMaterial(MATERIAL Material);
 	static void SetLight(LIGHT Light);
 
