@@ -4,10 +4,13 @@
 #include "polygon2D.h"
 #include "Field.h"
 #include "Camera.h"
+#include "model.h"
+#include "Player.h"
 
 CCamera* g_camera = NULL;
 CPolygon2D* g_polygon2d = NULL;
 CField* g_field = NULL;
+CPlayer* g_player = NULL;
 
 void Manager::Init()
 {
@@ -21,6 +24,9 @@ void Manager::Init()
 
 	g_field = new CField();
 	g_field->Init();
+
+	g_player = new CPlayer();
+	g_player->Init();
 }
 
 
@@ -34,6 +40,9 @@ void Manager::Uninit()
 
 	g_field->Uninit();
 	delete g_field;
+
+	g_player->Uninit();
+	delete g_player;
 
 	Renderer::Uninit();
 }
@@ -54,6 +63,8 @@ void Manager::Draw()
 	g_camera->Draw();
 
 	g_field->Draw();
+
+	g_player->Draw();
 
 	g_polygon2d->Draw();
 
