@@ -6,7 +6,7 @@
 void CPlayer::Init()
 {
 	m_model = new Model();
-	m_model->Load("asset\\model\\torus\\torus.obj");
+	m_model->Load("asset\\model\\test\\test.obj");
 
 	Renderer::CreateVertexShader(
 		&m_vertexshader,
