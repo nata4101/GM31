@@ -1,12 +1,9 @@
 #pragma once
+#include "GameObject.h"
 
-
-class CPlayer
+class CPlayer : public CGameObject
 {
 private:
-	D3DXVECTOR3 m_position;
-	D3DXVECTOR3 m_rotation;
-	D3DXVECTOR3 m_scale;
 
 	Model* m_model;
 
