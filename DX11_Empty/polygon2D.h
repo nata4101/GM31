@@ -1,6 +1,7 @@
 #pragma once
+#include "GameObject.h"
 
-class CPolygon2D
+class CPolygon2D :public CGameObject
 {
 public:
 

@@ -4,6 +4,8 @@
 class CGameObject
 {
 public:
+	CGameObject(){}
+	virtual ~CGameObject(){}
 	virtual void Init() = 0;
 	virtual void Uninit() = 0;
 	virtual void Update() = 0;

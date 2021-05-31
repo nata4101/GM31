@@ -6,67 +6,58 @@
 #include "Camera.h"
 #include "model.h"
 #include "Player.h"
+#include <list>
 
-CCamera* g_camera = NULL;
-CPolygon2D* g_polygon2d = NULL;
-CField* g_field = NULL;
-CPlayer* g_player = NULL;
+std::list<CGameObject*> g_GameObject;
 
 void Manager::Init()
 {
 	Renderer::Init();
 
-	g_camera = new CCamera();
-	g_camera->Init();
+	CCamera* camera = new CCamera();
+	camera->Init();
+	g_GameObject.push_back(camera);
 
-	g_polygon2d = new CPolygon2D();
-	g_polygon2d->Init();
+	CField* field = new CField();
+	field->Init();
+	g_GameObject.push_back(field);
+	
+	CPlayer* player = new CPlayer();
+	player->Init();
+	g_GameObject.push_back(player);
 
-	g_field = new CField();
-	g_field->Init();
-
-	g_player = new CPlayer();
-	g_player->Init();
+	CPolygon2D* polygon2d = new CPolygon2D();
+	polygon2d->Init();
+	g_GameObject.push_back(polygon2d);
 }
 
 
 void Manager::Uninit()
 {
-	g_camera->Uninit();
-	delete g_camera;
-
-	g_polygon2d->Uninit();
-	delete g_polygon2d;
-
-	g_field->Uninit();
-	delete g_field;
-
-	g_player->Uninit();
-	delete g_player;
-
+	for (CGameObject* object : g_GameObject) {
+		object->Uninit();
+		delete object;
+	}
+	g_GameObject.clear();
 	Renderer::Uninit();
 }
 
 void Manager::Update()
 {
-	g_camera->Update();
+	for (CGameObject* object : g_GameObject) {
+		object->Update();
 
-	g_polygon2d->Update();
-
-	g_field->Update();
+	}
 }
 
 void Manager::Draw()
 {
 	Renderer::Begin();
 
-	g_camera->Draw();
+	for (CGameObject* object : g_GameObject) {
+		object->Draw();
 
-	g_field->Draw();
-
-	g_player->Draw();
-
-	g_polygon2d->Draw();
+	}
 
 	Renderer::End();
 
