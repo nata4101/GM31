@@ -1,6 +1,7 @@
 #include "main.h"
 #include "renderer.h"
 #include "polygon2D.h"
+#include "ModelManager.h"
 
 void CPolygon2D::Init()
 {
@@ -49,12 +50,6 @@ void CPolygon2D::Init()
 
 	assert(m_Texture);
 
-	Renderer::CreateVertexShader(
-		&m_VertexShader,
-		&m_VertexLayout,
-		"unlitTextureVS.cso");
-
-	Renderer::CreatePixelShader(&m_PixelShader, "unlitTexturePS.cso");
 }
 
 void CPolygon2D::Uninit()
@@ -62,9 +57,6 @@ void CPolygon2D::Uninit()
 	m_VertexBuffer->Release();
 	m_Texture->Release();
 
-	m_VertexLayout->Release();
-	m_VertexShader->Release();
-	m_PixelShader->Release();
 }
 
 void CPolygon2D::Update()
@@ -74,11 +66,11 @@ void CPolygon2D::Update()
 void CPolygon2D::Draw()
 {
 	//入力レイアウト設定
-	Renderer::GetDeviceContext()->IASetInputLayout(m_VertexLayout);
+	Renderer::GetDeviceContext()->IASetInputLayout(CModelManager::GetShaderPac(CModelManager::ShaderList::TWODSHADER)->m_vertexlayout);
 
 	//シェーダ設定
-	Renderer::GetDeviceContext()->VSSetShader(m_VertexShader, NULL, 0);
-	Renderer::GetDeviceContext()->PSSetShader(m_PixelShader, NULL, 0);
+	Renderer::GetDeviceContext()->VSSetShader(CModelManager::GetShaderPac(CModelManager::ShaderList::TWODSHADER)->m_vertexshader, NULL, 0);
+	Renderer::GetDeviceContext()->PSSetShader(CModelManager::GetShaderPac(CModelManager::ShaderList::TWODSHADER)->m_pixelshader, NULL, 0);
 
 	//マトリクス設定
 	Renderer::SetWorldViewProjection2D();

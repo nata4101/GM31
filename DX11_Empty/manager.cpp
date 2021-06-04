@@ -2,13 +2,17 @@
 #include "manager.h"
 #include "renderer.h"
 #include "Scene.h"
+#include "ModelManager.h"
 
 CScene* Manager:: m_scene;
 
+CModelManager g_model_manager;
 
 void Manager::Init()
 {
 	Renderer::Init();
+
+	g_model_manager.Init();
 	
 	m_scene = new CScene();
 	m_scene->Init();
