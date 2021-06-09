@@ -4,7 +4,7 @@
 
 void CCamera::Init()
 {
-	m_position = D3DXVECTOR3(0, 2, -5);
+	m_position = D3DXVECTOR3(0, 4, -5);
 	m_target = D3DXVECTOR3(0, 0, 0);
 }
 

@@ -2,6 +2,9 @@
 #include "renderer.h"
 #include "model.h"
 #include "Player.h"
+#include "input.h"
+#include "Scene.h"
+#include "manager.h"
 
 void CPlayer::Init()
 {
@@ -15,7 +18,7 @@ void CPlayer::Init()
 
 	Renderer::CreatePixelShader(&m_pixelshader, "vertexLightingPS.cso");
 
-	m_position = D3DXVECTOR3(0, 0, 0);
+	m_position = D3DXVECTOR3(0, 0.5, 0);
 	m_rotation = D3DXVECTOR3(0, 0, 0);
 	m_scale = D3DXVECTOR3(1, 1, 1);
 }
@@ -33,6 +36,22 @@ void CPlayer::Uninit()
 
 void CPlayer::Update()
 {
+	if (Input::GetKeyPress('A')) {
+		m_position.x -= 0.1f;
+	}
+	if (Input::GetKeyPress('D')) {
+		m_position.x += 0.1f;
+	}
+	if (Input::GetKeyPress('S')) {
+		m_position.z -= 0.1f;
+	}
+	if (Input::GetKeyPress('W')) {
+		m_position.z += 0.1f;
+	}
+	if (Input::GetKeyTrigger(VK_SPACE)) {
+		CScene* scene = Manager::GetScene();
+		scene->AddGameObject<CBullet>()->SetPosition(m_position);
+	}
 }
 
 void CPlayer::Draw()

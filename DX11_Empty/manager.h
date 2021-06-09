@@ -11,4 +11,5 @@ public:
 	static void Update();
 	static void Draw();
 
+	static class CScene* GetScene(void) { return m_scene; }
 };

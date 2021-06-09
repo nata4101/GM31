@@ -13,7 +13,9 @@ public:
 	virtual void Uninit();
 	virtual void Update();
 	virtual void Draw();
+
+
 protected:
-	std::string m_model_name;
+	std::string m_model_name = "enemy_model";
 };
 
