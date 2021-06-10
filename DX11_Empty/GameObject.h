@@ -13,7 +13,15 @@ public:
 
 	void SetPosition(D3DXVECTOR3 pos) { m_position = pos; }
 
+	void SetRotation(D3DXVECTOR3 rad) { m_rotation = rad; }
+
+	void SetScale(D3DXVECTOR3 size) { m_scale = size; }
+
 	D3DXVECTOR3 GetPosition() { return m_position; }
+
+	D3DXVECTOR3 GetRotation() { return m_rotation; }
+
+	D3DXVECTOR3 GetScale() { return m_scale; }
 
 	void SetDestroy() { m_destroy = true; }
 

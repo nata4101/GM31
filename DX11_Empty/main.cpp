@@ -8,6 +8,7 @@ const char* CLASS_NAME = "AppClass";
 const char* WINDOW_NAME = "DX11ƒQ[ƒ€";
 
 
+
 LRESULT CALLBACK WndProc(HWND hWnd, UINT uMsg, WPARAM wParam, LPARAM lParam);
 
 
@@ -21,6 +22,8 @@ HWND GetWindow()
 
 int APIENTRY WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine, int nCmdShow)
 {
+	Manager* manager;
+
 	WNDCLASSEX wcex =
 	{
 		sizeof(WNDCLASSEX),
@@ -55,8 +58,9 @@ int APIENTRY WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLi
 		NULL);
 
 
+	manager = Manager::GetInstance();
 
-	Manager::Init();
+	manager->Init();
 
 
 
@@ -97,8 +101,8 @@ int APIENTRY WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLi
 			{
 				dwExecLastTime = dwCurrentTime;
 
-				Manager::Update();
-				Manager::Draw();
+				manager->Update();
+				manager->Draw();
 			}
 		}
 	}
@@ -107,7 +111,7 @@ int APIENTRY WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLi
 
 	UnregisterClass(CLASS_NAME, wcex.hInstance);
 
-	Manager::Uninit();
+	manager->Uninit();
 
 	return (int)msg.wParam;
 }

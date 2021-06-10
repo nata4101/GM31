@@ -4,28 +4,6 @@
 #include <io.h>
 
 
-D3D_FEATURE_LEVEL       Renderer::m_FeatureLevel = D3D_FEATURE_LEVEL_11_0;
-
-ID3D11Device*           Renderer::m_Device = NULL;
-ID3D11DeviceContext*    Renderer::m_DeviceContext = NULL;
-IDXGISwapChain*         Renderer::m_SwapChain = NULL;
-ID3D11RenderTargetView* Renderer::m_RenderTargetView = NULL;
-ID3D11DepthStencilView* Renderer::m_DepthStencilView = NULL;
-
-ID3D11Buffer*			Renderer::m_WorldBuffer = NULL;
-ID3D11Buffer*			Renderer::m_ViewBuffer = NULL;
-ID3D11Buffer*			Renderer::m_ProjectionBuffer = NULL;
-ID3D11Buffer*			Renderer::m_MaterialBuffer = NULL;
-ID3D11Buffer*			Renderer::m_LightBuffer = NULL;
-
-
-ID3D11DepthStencilState* Renderer::m_DepthStateEnable = NULL;
-ID3D11DepthStencilState* Renderer::m_DepthStateDisable = NULL;
-
-
-
-
-
 void Renderer::Init()
 {
 	HRESULT hr = S_OK;

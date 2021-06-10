@@ -5,14 +5,16 @@
 #include "ModelManager.h"
 #include "input.h"
 
-CScene* Manager:: m_scene;
 
 CModelManager g_model_manager;
 
+Renderer* renderer;
+
 void Manager::Init()
 {
+	renderer = Renderer::GetInstance();
 	Input::Init();
-	Renderer::Init();
+	renderer->Renderer::Init();
 
 	g_model_manager.Init();
 	
@@ -25,7 +27,7 @@ void Manager::Uninit()
 {
 
 	m_scene->Uninit();
-	Renderer::Uninit();
+	renderer->Uninit();
 	CModelManager::UnloadModelPacAll();
 	Input::Uninit();
 }
@@ -38,10 +40,10 @@ void Manager::Update()
 
 void Manager::Draw()
 {
-	Renderer::Begin();
+	renderer->Begin();
 
 	m_scene->Draw();
 	
-	Renderer::End();
+	renderer->End();
 
 }

@@ -5,37 +5,24 @@
 #include "input.h"
 #include "Scene.h"
 #include "manager.h"
+#include "ModelManager.h"
 
 void CPlayer::Init()
 {
-	m_model = new Model();
-	m_model->Load("asset\\model\\test\\test.obj");
+	CModelManager::LoadModelPac(&model_name, "asset\\model\\test\\test.obj");
 
-	Renderer::CreateVertexShader(
-		&m_vertexshader,
-		&m_vertexlayout,
-		"vertexLightingVS.cso");
-
-	Renderer::CreatePixelShader(&m_pixelshader, "vertexLightingPS.cso");
-
-	m_position = D3DXVECTOR3(0, 0.5, 0);
+	m_position = D3DXVECTOR3(0, 0, 0);
 	m_rotation = D3DXVECTOR3(0, 0, 0);
 	m_scale = D3DXVECTOR3(1, 1, 1);
 }
 
 void CPlayer::Uninit()
 {
-	m_model->Unload();
-
-	m_vertexlayout->Release();
-	m_vertexshader->Release();
-	m_pixelshader->Release();
-
-	delete m_model;
 }
 
 void CPlayer::Update()
 {
+	Manager* manager = Manager::GetInstance();
 	if (Input::GetKeyPress('A')) {
 		m_position.x -= 0.1f;
 	}
@@ -49,19 +36,20 @@ void CPlayer::Update()
 		m_position.z += 0.1f;
 	}
 	if (Input::GetKeyTrigger(VK_SPACE)) {
-		CScene* scene = Manager::GetScene();
+		CScene* scene = manager->GetScene();
 		scene->AddGameObject<CBullet>()->SetPosition(m_position);
 	}
 }
 
 void CPlayer::Draw()
 {
+	Renderer* renderer = Renderer::GetInstance();
 	//入力レイアウト設定
-	Renderer::GetDeviceContext()->IASetInputLayout(m_vertexlayout);
+	renderer->GetDeviceContext()->IASetInputLayout(CModelManager::GetShaderPac(CModelManager::ShaderList::THREEDSHADER)->m_vertexlayout);
 
 	//シェーダ設定
-	Renderer::GetDeviceContext()->VSSetShader(m_vertexshader, NULL, 0);
-	Renderer::GetDeviceContext()->PSSetShader(m_pixelshader, NULL, 0);
+	renderer->GetDeviceContext()->VSSetShader(CModelManager::GetShaderPac(CModelManager::ShaderList::THREEDSHADER)->m_vertexshader, NULL, 0);
+	renderer->GetDeviceContext()->PSSetShader(CModelManager::GetShaderPac(CModelManager::ShaderList::THREEDSHADER)->m_pixelshader, NULL, 0);
 
 	//マトリクス設定
 	D3DXMATRIX world, scale, rot, trans;
@@ -69,7 +57,7 @@ void CPlayer::Draw()
 	D3DXMatrixRotationYawPitchRoll(&rot, m_rotation.y, m_rotation.x, m_rotation.z);
 	D3DXMatrixTranslation(&trans, m_position.x, m_position.y, m_position.z);
 	world = scale * rot*trans;
-	Renderer::SetWorldMatrix(&world);
+	renderer->SetWorldMatrix(&world);
 
-	m_model->Draw();
+	CModelManager::GetModel(&model_name)->Draw();
 }

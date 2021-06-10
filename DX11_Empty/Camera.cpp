@@ -18,15 +18,16 @@ void CCamera::Update()
 
 void CCamera::Draw()
 {
+	Renderer* renderer = Renderer::GetInstance();
 	//ビューマトリクス設定
 	D3DXMATRIX viewMatirx;
 	D3DXMatrixLookAtLH(&viewMatirx, &m_position, &m_target, &D3DXVECTOR3(0, 1, 0));
 
-	Renderer::SetViewMatrix(&viewMatirx);
+	renderer->SetViewMatrix(&viewMatirx);
 
 	//プロジェクションマトリクス設定
 	D3DXMATRIX projectionMatrix;
 	D3DXMatrixPerspectiveFovLH(&projectionMatrix, 1, (float)SCREEN_WIDTH / SCREEN_HEIGHT, 1, 1000);
 
-	Renderer::SetProjectionMatrix(&projectionMatrix);
+	renderer->SetProjectionMatrix(&projectionMatrix);
 }

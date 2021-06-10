@@ -4,6 +4,7 @@
 
 void CField::Init()
 {
+	Renderer* renderer = Renderer::GetInstance();
 	VERTEX_3D vertex[4];
 
 	vertex[0].Position = D3DXVECTOR3(-10.0f, 0.0f, 10.0f);
@@ -36,11 +37,11 @@ void CField::Init()
 	D3D11_SUBRESOURCE_DATA sd{};
 	sd.pSysMem = vertex;
 
-	Renderer::GetDevice()->CreateBuffer(&bd, &sd, &m_VertexBuffer);
+	renderer->GetDevice()->CreateBuffer(&bd, &sd, &m_VertexBuffer);
 
 	//テクスチャ読み込み
 	D3DX11CreateShaderResourceViewFromFile(
-		Renderer::GetDevice(),
+		renderer->GetDevice(),
 		"asset/texture/field004.jpg",
 		NULL,
 		NULL,
@@ -49,12 +50,12 @@ void CField::Init()
 
 	assert(m_Texture);
 
-	Renderer::CreateVertexShader(
+	renderer->CreateVertexShader(
 		&m_VertexShader,
 		&m_VertexLayout,
 		"vertexLightingVS.cso");
 
-	Renderer::CreatePixelShader(&m_PixelShader, "vertexLightingPS.cso");
+	renderer->CreatePixelShader(&m_PixelShader, "vertexLightingPS.cso");
 
 	m_position = D3DXVECTOR3(0, 0, 0);
 	m_rotation = D3DXVECTOR3(0, 0, 0);
@@ -77,12 +78,13 @@ void CField::Update()
 
 void CField::Draw()
 {
+	Renderer* renderer = Renderer::GetInstance();
 	//入力レイアウト設定
-	Renderer::GetDeviceContext()->IASetInputLayout(m_VertexLayout);
+	renderer->GetDeviceContext()->IASetInputLayout(m_VertexLayout);
 
 	//シェーダ設定
-	Renderer::GetDeviceContext()->VSSetShader(m_VertexShader, NULL, 0);
-	Renderer::GetDeviceContext()->PSSetShader(m_PixelShader, NULL, 0);
+	renderer->GetDeviceContext()->VSSetShader(m_VertexShader, NULL, 0);
+	renderer->GetDeviceContext()->PSSetShader(m_PixelShader, NULL, 0);
 
 	//マトリクス設定
 	D3DXMATRIX world, scale, rot, trans;
@@ -90,12 +92,12 @@ void CField::Draw()
 	D3DXMatrixRotationYawPitchRoll(&rot, m_rotation.y, m_rotation.x, m_rotation.z);
 	D3DXMatrixTranslation(&trans, m_position.x, m_position.y, m_position.z);
 	world = scale * rot*trans;
-	Renderer::SetWorldMatrix(&world);
+	renderer->SetWorldMatrix(&world);
 
 	//頂点バッファ設定
 	UINT stride = sizeof(VERTEX_3D);
 	UINT offset = 0;
-	Renderer::GetDeviceContext()->IASetVertexBuffers(
+	renderer->GetDeviceContext()->IASetVertexBuffers(
 		0, 1,
 		&m_VertexBuffer,
 		&stride,
@@ -105,14 +107,14 @@ void CField::Draw()
 	MATERIAL material{};
 	ZeroMemory(&material, sizeof(MATERIAL));
 	material.Diffuse = D3DXCOLOR(1, 1, 1, 1);
-	Renderer::SetMaterial(material);
+	renderer->SetMaterial(material);
 
 	//テクスチャ設定
-	Renderer::GetDeviceContext()->PSSetShaderResources(0, 1, &m_Texture);
+	renderer->GetDeviceContext()->PSSetShaderResources(0, 1, &m_Texture);
 
 	//プリミティブトポロジ設定
-	Renderer::GetDeviceContext()->IASetPrimitiveTopology(D3D11_PRIMITIVE_TOPOLOGY_TRIANGLESTRIP);
+	renderer->GetDeviceContext()->IASetPrimitiveTopology(D3D11_PRIMITIVE_TOPOLOGY_TRIANGLESTRIP);
 
 	//ポリゴン描画
-	Renderer::GetDeviceContext()->Draw(4, 0);
+	renderer->GetDeviceContext()->Draw(4, 0);
 }

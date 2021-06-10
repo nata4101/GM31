@@ -8,19 +8,20 @@ CModelManager:: ShaderPac CModelManager:: shader_pac[SHADERMAX];
 
 void CModelManager::Init(void)
 {
-	Renderer::CreateVertexShader(
+	Renderer* renderer = Renderer::GetInstance();
+	renderer->CreateVertexShader(
 		&shader_pac[TWODSHADER].m_vertexshader,
 		&shader_pac[TWODSHADER].m_vertexlayout,
 		"unlitTextureVS.cso");
 
-	Renderer::CreatePixelShader(&shader_pac[TWODSHADER].m_pixelshader, "unlitTexturePS.cso");
+	renderer->CreatePixelShader(&shader_pac[TWODSHADER].m_pixelshader, "unlitTexturePS.cso");
 
-	Renderer::CreateVertexShader(
+	renderer->CreateVertexShader(
 		&shader_pac[THREEDSHADER].m_vertexshader,
 		&shader_pac[THREEDSHADER].m_vertexlayout,
 		"vertexLightingVS.cso");
 
-	Renderer::CreatePixelShader(&shader_pac[THREEDSHADER].m_pixelshader, "vertexLightingPS.cso");
+	renderer->CreatePixelShader(&shader_pac[THREEDSHADER].m_pixelshader, "vertexLightingPS.cso");
 }
 
 void CModelManager::LoadModelPac(string * model_name, const char * file_name)

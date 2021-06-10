@@ -1,15 +1,15 @@
 #pragma once
+#include "Singleton.h"
 
-
-class Manager
+class Manager : public Singleton<Manager>
 {
 private:
-	static class CScene* m_scene;
+	 class CScene* m_scene;
 public:
-	static void Init();
-	static void Uninit();
-	static void Update();
-	static void Draw();
+	 void Init();
+	 void Uninit();
+	 void Update();
+	 void Draw();
 
-	static class CScene* GetScene(void) { return m_scene; }
+	 class CScene* GetScene(void) { return m_scene; }
 };

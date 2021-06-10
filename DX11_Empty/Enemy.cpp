@@ -21,12 +21,13 @@ void CEnemy::Update()
 
 void CEnemy::Draw()
 {
+	Renderer* renderer = Renderer::GetInstance();
 	//入力レイアウト設定
-	Renderer::GetDeviceContext()->IASetInputLayout(CModelManager::GetShaderPac(CModelManager::ShaderList::THREEDSHADER)->m_vertexlayout);
+	renderer->GetDeviceContext()->IASetInputLayout(CModelManager::GetShaderPac(CModelManager::ShaderList::THREEDSHADER)->m_vertexlayout);
 
 	//シェーダ設定
-	Renderer::GetDeviceContext()->VSSetShader(CModelManager::GetShaderPac(CModelManager::ShaderList::THREEDSHADER)->m_vertexshader, NULL, 0);
-	Renderer::GetDeviceContext()->PSSetShader(CModelManager::GetShaderPac(CModelManager::ShaderList::THREEDSHADER)->m_pixelshader, NULL, 0);
+	renderer->GetDeviceContext()->VSSetShader(CModelManager::GetShaderPac(CModelManager::ShaderList::THREEDSHADER)->m_vertexshader, NULL, 0);
+	renderer->GetDeviceContext()->PSSetShader(CModelManager::GetShaderPac(CModelManager::ShaderList::THREEDSHADER)->m_pixelshader, NULL, 0);
 
 	//マトリクス設定
 	D3DXMATRIX world, scale, rot, trans;
@@ -34,7 +35,7 @@ void CEnemy::Draw()
 	D3DXMatrixRotationYawPitchRoll(&rot, m_rotation.y, m_rotation.x, m_rotation.z);
 	D3DXMatrixTranslation(&trans, m_position.x, m_position.y, m_position.z);
 	world = scale * rot*trans;
-	Renderer::SetWorldMatrix(&world);
+	renderer->SetWorldMatrix(&world);
 
 	CModelManager::GetModel(&m_model_name)->Draw();
 }
