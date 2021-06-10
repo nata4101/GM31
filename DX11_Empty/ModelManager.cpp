@@ -2,9 +2,6 @@
 #include "renderer.h"
 #include "ModelManager.h"
 
-list<CModelManager::ModelPac*> CModelManager:: model_list;
-
-CModelManager:: ShaderPac CModelManager:: shader_pac[SHADERMAX];
 
 void CModelManager::Init(void)
 {

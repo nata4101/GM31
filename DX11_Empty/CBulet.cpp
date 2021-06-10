@@ -6,7 +6,7 @@
 
 void CBullet::Init()
 {
-	CModelManager::LoadModelPac(&m_model_name, "asset\\model\\sphere\\sphere.obj");
+	CModelManager::GetInstance()->LoadModelPac(&m_model_name, "asset\\model\\sphere\\sphere.obj");
 
 	m_position = D3DXVECTOR3(0, 1, 0);
 	m_rotation = D3DXVECTOR3(0, 0, 0);
@@ -26,7 +26,7 @@ void CBullet::Update()
 	Manager* manager = Manager::GetInstance();
 
 	CScene* scene = manager->GetScene();
-	std::vector<CEnemy*> enemy_list = scene->GetGameObjects<CEnemy>();
+	std::vector<CEnemy*> enemy_list = scene->GetGameObjects<CEnemy>(CScene::THREED_OBJECT);
 
 	for (CEnemy* enemy : enemy_list) {
 		D3DXVECTOR3 enemyPosition = enemy->GetPosition();
@@ -45,13 +45,14 @@ void CBullet::Update()
 
 void CBullet::Draw()
 {
+	CModelManager* m_manager = CModelManager::GetInstance();
 	Renderer* renderer = Renderer::GetInstance();
 	//入力レイアウト設定
-	renderer->GetDeviceContext()->IASetInputLayout(CModelManager::GetShaderPac(CModelManager::ShaderList::THREEDSHADER)->m_vertexlayout);
+	renderer->GetDeviceContext()->IASetInputLayout(m_manager->GetShaderPac(CModelManager::ShaderList::THREEDSHADER)->m_vertexlayout);
 
 	//シェーダ設定
-	renderer->GetDeviceContext()->VSSetShader(CModelManager::GetShaderPac(CModelManager::ShaderList::THREEDSHADER)->m_vertexshader, NULL, 0);
-	renderer->GetDeviceContext()->PSSetShader(CModelManager::GetShaderPac(CModelManager::ShaderList::THREEDSHADER)->m_pixelshader, NULL, 0);
+	renderer->GetDeviceContext()->VSSetShader(m_manager->GetShaderPac(CModelManager::ShaderList::THREEDSHADER)->m_vertexshader, NULL, 0);
+	renderer->GetDeviceContext()->PSSetShader(m_manager->GetShaderPac(CModelManager::ShaderList::THREEDSHADER)->m_pixelshader, NULL, 0);
 
 	//マトリクス設定
 	D3DXMATRIX world, scale, rot, trans;
@@ -61,5 +62,5 @@ void CBullet::Draw()
 	world = scale * rot*trans;
 	renderer->SetWorldMatrix(&world);
 
-	CModelManager::GetModel(&m_model_name)->Draw();
+	m_manager->GetModel(&m_model_name)->Draw();
 }

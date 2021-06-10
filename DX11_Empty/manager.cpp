@@ -6,7 +6,7 @@
 #include "input.h"
 
 
-CModelManager g_model_manager;
+CModelManager* g_model_manager;
 
 Renderer* renderer;
 
@@ -16,7 +16,9 @@ void Manager::Init()
 	Input::Init();
 	renderer->Renderer::Init();
 
-	g_model_manager.Init();
+	g_model_manager = CModelManager::GetInstance();
+
+	g_model_manager->Init();
 	
 	m_scene = new CScene();
 	m_scene->Init();
@@ -28,7 +30,7 @@ void Manager::Uninit()
 
 	m_scene->Uninit();
 	renderer->Uninit();
-	CModelManager::UnloadModelPacAll();
+	CModelManager::GetInstance()->UnloadModelPacAll();
 	Input::Uninit();
 }
 

@@ -68,13 +68,14 @@ void CPolygon2D::Update()
 void CPolygon2D::Draw()
 {
 	Renderer* render = Renderer::GetInstance();
+	CModelManager* m_manager = CModelManager::GetInstance();
 
 	//入力レイアウト設定
-	render->GetDeviceContext()->IASetInputLayout(CModelManager::GetShaderPac(CModelManager::ShaderList::TWODSHADER)->m_vertexlayout);
+	render->GetDeviceContext()->IASetInputLayout(m_manager->GetShaderPac(CModelManager::ShaderList::TWODSHADER)->m_vertexlayout);
 
 	//シェーダ設定
-	render->GetDeviceContext()->VSSetShader(CModelManager::GetShaderPac(CModelManager::ShaderList::TWODSHADER)->m_vertexshader, NULL, 0);
-	render->GetDeviceContext()->PSSetShader(CModelManager::GetShaderPac(CModelManager::ShaderList::TWODSHADER)->m_pixelshader, NULL, 0);
+	render->GetDeviceContext()->VSSetShader(m_manager->GetShaderPac(CModelManager::ShaderList::TWODSHADER)->m_vertexshader, NULL, 0);
+	render->GetDeviceContext()->PSSetShader(m_manager->GetShaderPac(CModelManager::ShaderList::TWODSHADER)->m_pixelshader, NULL, 0);
 
 	//マトリクス設定
 	render->SetWorldViewProjection2D();

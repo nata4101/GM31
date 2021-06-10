@@ -14,73 +14,90 @@
 class CScene
 {
 public:
+	enum ObjectLayer {
+		CAMERA_OBJECT,
+		THREED_OBJECT,
+		TWOD_OBJECT,
+		MAX_LAYER
+	};
+
 	CScene() {}
 	virtual ~CScene() {}
 
 	virtual void Init() {
-		AddGameObject<CCamera>();
+		AddGameObject<CCamera>(CAMERA_OBJECT);
 
-		AddGameObject<CField>();
+		AddGameObject<CField>(THREED_OBJECT);
 
-		AddGameObject<CPlayer>();
+		AddGameObject<CPlayer>(THREED_OBJECT);
 
-		AddGameObject<CEnemy>()->SetPosition(D3DXVECTOR3(-3, 1, 5));
+		AddGameObject<CEnemy>(THREED_OBJECT)->SetPosition(D3DXVECTOR3(-3, 1, 5));
 
-		AddGameObject<CEnemy>()->SetPosition(D3DXVECTOR3(0, 1, 5));
+		AddGameObject<CEnemy>(THREED_OBJECT)->SetPosition(D3DXVECTOR3(0, 1, 5));
 
-		AddGameObject<CEnemy>()->SetPosition(D3DXVECTOR3(3, 1, 5));
+		AddGameObject<CEnemy>(THREED_OBJECT)->SetPosition(D3DXVECTOR3(3, 1, 5));
 
 		//AddGameObject<CBullet>();
 
-		//AddGameObject<CPolygon2D>();
+		AddGameObject<CPolygon2D>(TWOD_OBJECT);
 
 	}
 	virtual void Uninit() {
-		for (CGameObject* object : m_gameobject) {
-			object->Uninit();
-			delete object;
+		for (int i = 0; i < MAX_LAYER; i++) {
+			for (CGameObject* object : m_gameobject[i]) {
+				object->Uninit();
+				delete object;
+			}
+			m_gameobject[i].clear();
 		}
-		m_gameobject.clear();
 	}
 	virtual void Update() {
-		for (CGameObject* object : m_gameobject) {
-			object->Update();
+		for (int i = 0; i < MAX_LAYER; i++) {
+			for (CGameObject* object : m_gameobject[i]) {
+				object->Update();
 
+			}
+			//ƒ‰ƒ€ƒ_Ž®
+			m_gameobject[i].remove_if([](CGameObject* object) {return object->Destroy(); });
 		}
-		//ƒ‰ƒ€ƒ_Ž®
-		m_gameobject.remove_if([](CGameObject* object) {return object->Destroy(); });
 	}
 	virtual void Draw() {
-		for (CGameObject* object : m_gameobject) {
-			object->Draw();
+		for (int i = 0; i < MAX_LAYER; i++) {
+			for (CGameObject* object : m_gameobject[i]) {
+				object->Draw();
+			}
 		}
 	}
 
 	template <typename T>
-	T* AddGameObject()
+	T* AddGameObject(ObjectLayer layer)
 	{
 		T* gameObject = new T();
+		m_gameobject[layer].push_back(gameObject);
 		gameObject->Init();
-		m_gameobject.push_back(gameObject);
 		return gameObject;
 	}
 
 	template <typename T>
 	T* GetGameObject()
 	{
-		for(CGameObject* object : m_gameobject)
-			if (typeid(*object) == typeid(T))
-			{
-				return (T*)object;
-			}
+		for (int i = 0; i < MAX_LAYER; i++) {
+			for (CGameObject* object : m_gameobject)
+				if (typeid(*object) == typeid(T))
+				{
+					return (T*)object;
+				}
+
+		}
 		return NULL;
+		
 	}
 
 	template <typename T>
-	std::vector<T*> GetGameObjects()
+	std::vector<T*> GetGameObjects(ObjectLayer layer)
 	{
 		std::vector<T*> objects;
-		for (CGameObject* object : m_gameobject)
+		for (CGameObject* object : m_gameobject[layer])
 		{
 			if (typeid(*object) == typeid(T)) {
 				objects.push_back((T*)object);
@@ -91,6 +108,6 @@ public:
 
 
 protected:
-	std::list<CGameObject*> m_gameobject;
+	std::list<CGameObject*> m_gameobject[3];
  };
 

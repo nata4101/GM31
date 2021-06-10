@@ -1,7 +1,2 @@
-﻿  CBulet.cpp
-c:\users\riki1\source\repos\gm31授業\dx11_empty\cbulet.cpp(13): warning C4305: '引数': 'double' から 'FLOAT' へ切り詰めます。
-c:\users\riki1\source\repos\gm31授業\dx11_empty\cbulet.cpp(15): warning C4305: '=': 'double' から 'float' へ切り詰めます。
-  Player.cpp
-  manager.cpp
-  コードを生成中...
+﻿  manager.cpp
   DX11_Empty.vcxproj -> C:\Users\riki1\source\repos\GM31授業\Debug\DX11_Empty.exe

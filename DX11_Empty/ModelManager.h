@@ -2,11 +2,12 @@
 #include "model.h"
 #include <list>
 #include <string>
+#include "Singleton.h"
 
 
 using namespace std;
 
-class CModelManager
+class CModelManager : public Singleton<CModelManager>
 {
 public:
 	CModelManager(){}
@@ -37,22 +38,22 @@ public:
 	};
 	void Init(void);
 
-	static void LoadModelPac(string* model_name, const char* file_name);
+	void LoadModelPac(string* model_name, const char* file_name);
 
-	static Model* GetModel(string* name);
+	Model* GetModel(string* name);
 
-	static void UnloadModelPac(string* name);
+	void UnloadModelPac(string* name);
 
-	static void UnloadModelPacAll(void);
+	void UnloadModelPacAll(void);
 
-	static ShaderPac* GetShaderPac(ShaderList shader) {
+	ShaderPac* GetShaderPac(ShaderList shader) {
 		return &shader_pac[shader];
 	}
 
 private:
 
-	static list<ModelPac*> model_list;
+	list<ModelPac*> model_list;
 
-	static ShaderPac shader_pac[SHADERMAX];
+	ShaderPac shader_pac[SHADERMAX];
 };
 
