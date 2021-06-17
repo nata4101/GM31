@@ -5,11 +5,13 @@
 #include "input.h"
 #include "Scene.h"
 #include "manager.h"
-#include "ModelManager.h"
+#include "ResourceManager.h"
+
+UINT  CPlayer::model_index;
 
 void CPlayer::Init()
 {
-	CModelManager::GetInstance()->LoadModelPac(&model_name, "asset\\model\\test\\test.obj");
+	model_index = CResourceManager::GetInstance()->LoadModelPac("asset\\model\\test\\test.obj");
 
 	m_position = D3DXVECTOR3(0, 0, 0);
 	m_rotation = D3DXVECTOR3(0, 0, 0);
@@ -43,14 +45,14 @@ void CPlayer::Update()
 
 void CPlayer::Draw()
 {
-	CModelManager* m_manager = CModelManager::GetInstance();
+	CResourceManager* m_manager = CResourceManager::GetInstance();
 	Renderer* renderer = Renderer::GetInstance();
 	//入力レイアウト設定
-	renderer->GetDeviceContext()->IASetInputLayout(m_manager->GetShaderPac(CModelManager::ShaderList::THREEDSHADER)->m_vertexlayout);
+	renderer->GetDeviceContext()->IASetInputLayout(m_manager->GetShaderPac(CResourceManager::ShaderList::THREEDSHADER)->m_vertexlayout);
 
 	//シェーダ設定
-	renderer->GetDeviceContext()->VSSetShader(m_manager->GetShaderPac(CModelManager::ShaderList::THREEDSHADER)->m_vertexshader, NULL, 0);
-	renderer->GetDeviceContext()->PSSetShader(m_manager->GetShaderPac(CModelManager::ShaderList::THREEDSHADER)->m_pixelshader, NULL, 0);
+	renderer->GetDeviceContext()->VSSetShader(m_manager->GetShaderPac(CResourceManager::ShaderList::THREEDSHADER)->m_vertexshader, NULL, 0);
+	renderer->GetDeviceContext()->PSSetShader(m_manager->GetShaderPac(CResourceManager::ShaderList::THREEDSHADER)->m_pixelshader, NULL, 0);
 
 	//マトリクス設定
 	D3DXMATRIX world, scale, rot, trans;
@@ -60,5 +62,5 @@ void CPlayer::Draw()
 	world = scale * rot*trans;
 	renderer->SetWorldMatrix(&world);
 
-	m_manager->GetModel(&model_name)->Draw();
+	m_manager->GetModel(model_index)->Draw();
 }

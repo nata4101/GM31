@@ -16,6 +16,6 @@ public:
 protected:
 	D3DXVECTOR3 dir;
 	float speed;
-	std::string m_model_name = "bullet_model";
+	static UINT model_index;
 };
 

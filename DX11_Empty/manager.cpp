@@ -2,11 +2,11 @@
 #include "manager.h"
 #include "renderer.h"
 #include "Scene.h"
-#include "ModelManager.h"
+#include "ResourceManager.h"
 #include "input.h"
 
 
-CModelManager* g_model_manager;
+CResourceManager* g_model_manager;
 
 Renderer* renderer;
 
@@ -16,7 +16,7 @@ void Manager::Init()
 	Input::Init();
 	renderer->Renderer::Init();
 
-	g_model_manager = CModelManager::GetInstance();
+	g_model_manager = CResourceManager::GetInstance();
 
 	g_model_manager->Init();
 	
@@ -30,7 +30,7 @@ void Manager::Uninit()
 
 	m_scene->Uninit();
 	renderer->Uninit();
-	CModelManager::GetInstance()->UnloadModelPacAll();
+	CResourceManager::GetInstance()->UnloadModelPacAll();
 	Input::Uninit();
 }
 

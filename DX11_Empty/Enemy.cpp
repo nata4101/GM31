@@ -1,10 +1,12 @@
 #include "Enemy.h"
 #include "renderer.h"
-#include "ModelManager.h"
+#include "ResourceManager.h"
+
+UINT CEnemy::model_index;
 
 void CEnemy::Init()
 {
-	CModelManager::GetInstance()->LoadModelPac(&m_model_name, "asset\\model\\torus\\torus.obj");
+	model_index =  CResourceManager::GetInstance()->LoadModelPac("asset\\model\\torus\\torus.obj");
 
 	m_position = D3DXVECTOR3(0, 0, 0);
 	m_rotation = D3DXVECTOR3(0, 0, 0);
@@ -22,13 +24,13 @@ void CEnemy::Update()
 void CEnemy::Draw()
 {
 	Renderer* renderer = Renderer::GetInstance();
-	CModelManager* m_manager = CModelManager::GetInstance();
+	CResourceManager* m_manager = CResourceManager::GetInstance();
 	//入力レイアウト設定
-	renderer->GetDeviceContext()->IASetInputLayout(m_manager->GetShaderPac(CModelManager::ShaderList::THREEDSHADER)->m_vertexlayout);
+	renderer->GetDeviceContext()->IASetInputLayout(m_manager->GetShaderPac(CResourceManager::ShaderList::THREEDSHADER)->m_vertexlayout);
 
 	//シェーダ設定
-	renderer->GetDeviceContext()->VSSetShader(m_manager->GetShaderPac(CModelManager::ShaderList::THREEDSHADER)->m_vertexshader, NULL, 0);
-	renderer->GetDeviceContext()->PSSetShader(m_manager->GetShaderPac(CModelManager::ShaderList::THREEDSHADER)->m_pixelshader, NULL, 0);
+	renderer->GetDeviceContext()->VSSetShader(m_manager->GetShaderPac(CResourceManager::ShaderList::THREEDSHADER)->m_vertexshader, NULL, 0);
+	renderer->GetDeviceContext()->PSSetShader(m_manager->GetShaderPac(CResourceManager::ShaderList::THREEDSHADER)->m_pixelshader, NULL, 0);
 
 	//マトリクス設定
 	D3DXMATRIX world, scale, rot, trans;
@@ -38,6 +40,6 @@ void CEnemy::Draw()
 	world = scale * rot*trans;
 	renderer->SetWorldMatrix(&world);
 
-	m_manager->GetModel(&m_model_name)->Draw();
+	m_manager->GetModel(model_index)->Draw();
 }
 

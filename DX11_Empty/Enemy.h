@@ -16,6 +16,6 @@ public:
 
 
 protected:
-	std::string m_model_name = "enemy_model";
+	static UINT model_index;
 };
 
