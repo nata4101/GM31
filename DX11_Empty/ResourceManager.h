@@ -24,7 +24,7 @@ public:
 	{
 		UINT texture_index;
 		const char* file_name;
-		ID3D11ShaderResourceView* model;
+		ID3D11ShaderResourceView* texture;
 	};
 
 	struct ShaderPac
@@ -44,12 +44,19 @@ public:
 	void Init(void);
 
 	UINT LoadModelPac(const char* file_name);
+	UINT LoadTexturePac(const char* file_name);
 
 	Model* GetModel(UINT index);
+
+	ID3D11ShaderResourceView* GetTexture(UINT index);
 
 	void UnloadModelPac(UINT index);
 
 	void UnloadModelPacAll(void);
+
+	void UnloadTexturePac(UINT index);
+
+	void UnloadTexturePacAll(void);
 
 	ShaderPac* GetShaderPac(ShaderList shader) {
 		return &shader_pac[shader];
@@ -58,7 +65,7 @@ public:
 private:
 
 	list<ModelPac*> model_list;
-	list<TexturePac> texture_list;
+	list<TexturePac*> texture_list;
 
 	ShaderPac shader_pac[SHADERMAX];
 

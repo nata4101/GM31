@@ -25,8 +25,6 @@ void CResourceManager::Init(void)
 
 UINT CResourceManager::LoadModelPac(const char * file_name)
 {
-
-
 	for (ModelPac* pac : model_list) {
 		if (pac->file_name == file_name) return pac->model_index;
 	}
@@ -46,10 +44,50 @@ UINT CResourceManager::LoadModelPac(const char * file_name)
 	return resource_count;
 }
 
+UINT CResourceManager::LoadTexturePac(const char * file_name)
+{
+	Renderer* renderer = Renderer::GetInstance();
+
+	for (TexturePac* pac : texture_list) {
+		if (pac->file_name == file_name) return pac->texture_index;
+	}
+
+	resource_count++;
+
+	TexturePac* buff = new TexturePac();
+
+	//テクスチャ読み込み
+	D3DX11CreateShaderResourceViewFromFile(
+		renderer->GetDevice(),
+		file_name,
+		NULL,
+		NULL,
+		&buff->texture,
+		NULL);
+
+	assert(buff->texture);
+
+	buff->file_name = file_name;
+	buff->texture_index = resource_count;
+
+	texture_list.push_back(buff);
+
+	return resource_count;
+}
+
 Model * CResourceManager::GetModel(UINT index)
 {
 	for (ModelPac* pac : model_list) {
 		if (pac->model_index == index) return pac->model;
+	}
+
+	return NULL;
+}
+
+ID3D11ShaderResourceView * CResourceManager::GetTexture(UINT index)
+{
+	for (TexturePac* pac : texture_list) {
+		if (pac->texture_index == index) return pac->texture;
 	}
 
 	return NULL;
@@ -80,4 +118,12 @@ void CResourceManager::UnloadModelPacAll(void)
 	}
 	model_list.clear();
 	return;
+}
+
+void CResourceManager::UnloadTexturePac(UINT index)
+{
+}
+
+void CResourceManager::UnloadTexturePacAll(void)
+{
 }

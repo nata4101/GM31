@@ -9,6 +9,7 @@
 #include <list>
 #include <typeinfo>
 #include <vector>
+#include "Explosion.h"
 #include "Scene.h"
 
 class CScene
@@ -39,7 +40,8 @@ public:
 
 		//AddGameObject<CBullet>();
 
-		AddGameObject<CPolygon2D>(TWOD_OBJECT);
+		//AddGameObject<CPolygon2D>(TWOD_OBJECT);
+		AddGameObject<CExplosion>(THREED_OBJECT);
 
 	}
 	virtual void Uninit() {

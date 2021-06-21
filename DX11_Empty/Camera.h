@@ -8,8 +8,9 @@ public:
 	void Uninit();
 	void Update();
 	void Draw();
+	D3DXMATRIX GetViewMatrix();
 
 private:
-	D3DXVECTOR3 m_position;
 	D3DXVECTOR3 m_target;
+	D3DXMATRIX m_viewMatirx;
 };
