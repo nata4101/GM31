@@ -1,4 +1,6 @@
 #pragma once
+#include "Singleton.h"
+
 using namespace DirectX;
 
 struct VERTEX_3D
@@ -34,7 +36,7 @@ struct LIGHT
 
 
 
-class Renderer
+class Renderer : public Singleton<Renderer>
 {
 private:
 

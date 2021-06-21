@@ -1,7 +1,7 @@
 #pragma once
+#include "Singleton.h"
 
-
-class Manager
+class Manager : public Singleton<Manager>
 {
 
 public:
@@ -9,5 +9,7 @@ public:
 	static void Uninit();
 	static void Update();
 	static void Draw();
-
+	class CScene* GetScene(void) { return m_scene; }
+private :
+	class CScene* m_scene;
 };

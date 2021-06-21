@@ -1,2 +1,23 @@
-﻿  Field.cpp
-  DX11_Empty.vcxproj -> C:\Users\Riki Takayanagi\source\repos\DX11Shader\Debug\DX11_Empty.exe
+﻿  compilation object save succeeded; see C:\Users\riki1\source\repos\GM31授業\DX11_Empty\unlitTexturePS.cso
+  compilation object save succeeded; see C:\Users\riki1\source\repos\GM31授業\DX11_Empty\unlitTextureVS.cso
+  compilation object save succeeded; see C:\Users\riki1\source\repos\GM31授業\DX11_Empty\vertexLightingPS.cso
+  compilation object save succeeded; see C:\Users\riki1\source\repos\GM31授業\DX11_Empty\vertexLightingVS.cso
+  Camera.cpp
+c:\users\riki1\source\repos\gm31授業\dx11_empty\gameobject.h(46): warning C4324: 'CGameObject': アラインメント指定子のために構造体がパッドされました
+  Field.cpp
+  input.cpp
+  main.cpp
+c:\users\riki1\source\repos\gm31授業\dx11_empty\main.cpp(22): warning C4100: 'lpCmdLine': 引数は関数の本体部で 1 度も参照されません。
+c:\users\riki1\source\repos\gm31授業\dx11_empty\main.cpp(22): warning C4100: 'hPrevInstance': 引数は関数の本体部で 1 度も参照されません。
+  manager.cpp
+c:\users\riki1\source\repos\gm31授業\dx11_empty\gameobject.h(46): warning C4324: 'CGameObject': アラインメント指定子のために構造体がパッドされました
+c:\users\riki1\source\repos\gm31授業\dx11_empty\manager.cpp(22): warning C4316: 'CCamera': ヒープで割り当てられたオブジェクトが 16 にアラインメントされていない可能性があります
+  model.cpp
+c:\users\riki1\source\repos\gm31授業\dx11_empty\model.cpp(211): warning C4244: '=': 'int' から 'char' への変換です。データが失われる可能性があります。
+c:\users\riki1\source\repos\gm31授業\dx11_empty\model.cpp(355): warning C4244: '=': 'int' から 'char' への変換です。データが失われる可能性があります。
+  polygon2D.cpp
+  renderer.cpp
+  ResourceManager.cpp
+c:\users\riki1\source\repos\gm31授業\dx11_empty\resourcemanager.cpp(123): warning C4100: 'index': 引数は関数の本体部で 1 度も参照されません。
+  コードを生成中...
+  DX11_Empty.vcxproj -> C:\Users\riki1\source\repos\GM31授業\Debug\DX11_Empty.exe

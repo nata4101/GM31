@@ -1,59 +1,50 @@
 #include "main.h"
 #include "manager.h"
 #include "renderer.h"
-#include "polygon2D.h"
-#include "Camera.h"
-#include "Field.h"
+#include "Scene.h"
+#include "ResourceManager.h"
+#include "input.h"
 
-CPolygon2D* g_polygon2d = NULL;
-CField *	g_field = NULL;
-CCamera*	g_camera = NULL;
+
+CResourceManager* g_model_manager;
+
+Renderer* renderer;
 
 void Manager::Init()
 {
-	Renderer::Init();
+	renderer = Renderer::GetInstance();
+	Input::Init();
+	renderer->Renderer::Init();
 
-	g_polygon2d = new CPolygon2D();
-	g_polygon2d->Init();
+	g_model_manager = CResourceManager::GetInstance();
 
-	g_field = new CField();
-	g_field->Init();
+	g_model_manager->Init();
 
-	g_camera = new CCamera();
-	g_camera->Init();
+	m_scene = new CScene();
+	m_scene->Init();
 
 }
 
 
 void Manager::Uninit()
 {
-	g_polygon2d->Uninit();
-	delete g_polygon2d;
-
-	g_field->Uninit();
-	delete g_field;
-
-	g_camera->Uninit();
-	delete g_camera;
-
-	Renderer::Uninit();
+	m_scene->Uninit();
+	renderer->Uninit();
+	CResourceManager::GetInstance()->UnloadModelPacAll();
+	Input::Uninit();
 }
 
 void Manager::Update()
 {
-	g_camera->Update();
-	g_field->Update();
-	g_polygon2d->Update();
+	Input::Update();
+	m_scene->Update();
 }
 
 void Manager::Draw()
 {
-	Renderer::Begin();
-	g_camera->Draw();
+	renderer->Begin();
 
-	g_field->Draw();
+	m_scene->Draw();
 
-	g_polygon2d->Draw();
-
-	Renderer::End();
+	renderer->End();
 }
