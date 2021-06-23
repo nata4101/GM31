@@ -37,6 +37,8 @@ void CBullet::Update()
 		if (2.0f > D3DXVec3Length(&length)) {
 			enemy->SetDestroy();
 			SetDestroy();
+			scene->AddGameObject<CExplosion>(CScene::THREED_OBJECT)->SetPosition(enemyPosition);
+
 		}
 	}
 

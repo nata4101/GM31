@@ -13,5 +13,6 @@ public:
 private:
 	static UINT texture_index;
 	ID3D11Buffer* m_VertexBuffer = NULL;
+	float m_count;
 };
 

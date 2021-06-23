@@ -40,8 +40,8 @@ public:
 
 		//AddGameObject<CBullet>();
 
-		//AddGameObject<CPolygon2D>(TWOD_OBJECT);
-		AddGameObject<CExplosion>(THREED_OBJECT);
+		AddGameObject<CPolygon2D>(TWOD_OBJECT);
+		//AddGameObject<CExplosion>(THREED_OBJECT);
 
 	}
 	virtual void Uninit() {
