@@ -1,5 +1,7 @@
 #include "main.h"
 #include "renderer.h"
+#include "manager.h"
+#include "Scene.h"
 #include "Camera.h"
 #include "input.h"
 
@@ -15,18 +17,27 @@ void CCamera::Uninit()
 
 void CCamera::Update()
 {
-	if (Input::GetKeyPress(VK_LEFT)) {
-		m_position.x -= 0.1f;
-	}
-	if (Input::GetKeyPress(VK_RIGHT)) {
-		m_position.x += 0.1f;
-	}
-	if (Input::GetKeyPress(VK_DOWN)) {
-		m_position.y -= 0.1f;
-	}
-	if (Input::GetKeyPress(VK_UP)) {
-		m_position.y += 0.1f;
-	}
+	CPlayer* player = Manager::GetInstance()->GetScene()->GetGameObject<CPlayer>();
+
+	m_target = player->GetPosition();
+
+	//m_position = m_target + D3DXVECTOR3(0.0f, 5.0f, -8.0f);
+
+	D3DXVECTOR3 forward = player->GetForward();
+	m_position = m_target - forward * 5.0f + D3DXVECTOR3(0.0f, 3.0f, 0.0f);
+
+	//if (Input::GetKeyPress(VK_LEFT)) {
+	//	m_position.x -= 0.1f;
+	//}
+	//if (Input::GetKeyPress(VK_RIGHT)) {
+	//	m_position.x += 0.1f;
+	//}
+	//if (Input::GetKeyPress(VK_DOWN)) {
+	//	m_position.y -= 0.1f;
+	//}
+	//if (Input::GetKeyPress(VK_UP)) {
+	//	m_position.y += 0.1f;
+	//}
 }
 
 void CCamera::Draw()

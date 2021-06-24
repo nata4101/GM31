@@ -13,6 +13,8 @@ public:
 	virtual void Update();
 	virtual void Draw();
 
+	void SetDirection(D3DXVECTOR3 forward) { dir = forward; }
+
 protected:
 	D3DXVECTOR3 dir;
 	float speed;

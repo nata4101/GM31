@@ -114,8 +114,8 @@ void CExplosion::Draw()
 	renderer->GetDeviceContext()->PSSetShader(resource->GetShaderPac(CResourceManager::TWODSHADER)->m_pixelshader, NULL, 0);
 
 	CScene* scene = Manager::GetInstance()->GetScene();
-	std::vector<CCamera*> camera = scene->GetGameObjects<CCamera>(CScene::CAMERA_OBJECT);
-	D3DXMATRIX view = camera[0]->GetViewMatrix();
+	CCamera* camera = scene->GetGameObject<CCamera>();
+	D3DXMATRIX view = camera->GetViewMatrix();
 	//ƒrƒ…[‚Ì‹ts—ñ
 	D3DXMATRIX invView;
 	D3DXMatrixInverse(&invView, NULL, &view);

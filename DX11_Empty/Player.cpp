@@ -26,20 +26,23 @@ void CPlayer::Update()
 {
 	Manager* manager = Manager::GetInstance();
 	if (Input::GetKeyPress('A')) {
-		m_position.x -= 0.1f;
+		m_rotation.y -= 0.05f;
 	}
 	if (Input::GetKeyPress('D')) {
-		m_position.x += 0.1f;
+		m_rotation.y += 0.05f;
 	}
 	if (Input::GetKeyPress('S')) {
-		m_position.z -= 0.1f;
+		m_position -= GetForward() * 0.1f;
 	}
 	if (Input::GetKeyPress('W')) {
-		m_position.z += 0.1f;
+		m_position += GetForward() * 0.1f;
 	}
 	if (Input::GetKeyTrigger(VK_SPACE)) {
 		CScene* scene = manager->GetScene();
-		scene->AddGameObject<CBullet>(CScene::THREED_OBJECT)->SetPosition(m_position);
+		CBullet* bullet;
+		bullet = scene->AddGameObject<CBullet>(CScene::THREED_OBJECT);
+		bullet->SetPosition(m_position);
+		bullet->SetDirection(GetForward());
 	}
 }
 

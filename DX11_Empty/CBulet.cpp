@@ -14,7 +14,7 @@ void CBullet::Init()
 	m_rotation = D3DXVECTOR3(0, 0, 0);
 	m_scale = D3DXVECTOR3(0.2, 0.2, 0.2);
 	dir = D3DXVECTOR3(0, 0, 1);
-	speed = 0.1;
+	speed = 0.2;
 }
 
 void CBullet::Uninit()
