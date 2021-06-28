@@ -5,20 +5,20 @@ using namespace DirectX;
 
 struct VERTEX_3D
 {
-	XMFLOAT3 Position;
-	XMFLOAT3 Normal;
-    XMFLOAT4 Diffuse;
-	XMFLOAT2 TexCoord;
+	DXVector3 Position;
+	DXVector3 Normal;
+    DXVector4 Diffuse;
+	DXVector2 TexCoord;
 };
 
 
 
 struct MATERIAL
 {
-	XMFLOAT4	Ambient;
-	XMFLOAT4	Diffuse;
-	XMFLOAT4	Specular;
-	XMFLOAT4	Emission;
+	DXVector4	Ambient;
+	DXVector4	Diffuse;
+	DXVector4	Specular;
+	DXVector4	Emission;
 	float		Shininess;
 	float		Dummy[3];
 };
@@ -29,9 +29,9 @@ struct LIGHT
 {
 	BOOL		Enable;
 	BOOL		Dummy[3];
-	XMVECTOR	Direction;
-	XMFLOAT4	Diffuse;
-	XMFLOAT4	Ambient;
+	DXVector3	Direction;
+	DXVector4	Diffuse;
+	DXVector4	Ambient;
 };
 
 

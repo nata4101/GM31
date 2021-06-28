@@ -10,9 +10,9 @@ public:
 	void Draw();
 
 private:
-	XMFLOAT3 m_position;
-	XMFLOAT3 m_rotation;
-	XMFLOAT3 m_scale;
+	DXVector3 m_position;
+	DXVector3 m_rotation;
+	DXVector3 m_scale;
 
 	ID3D11Buffer*				m_VertexBuffer = NULL;
 	ID3D11ShaderResourceView*	m_Texture = NULL;

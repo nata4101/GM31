@@ -14,7 +14,7 @@ public:
 	virtual void Draw();
 
 protected:
-	XMFLOAT3 dir;
+	DXVector3 dir;
 	float speed;
 	static UINT model_index;
 };

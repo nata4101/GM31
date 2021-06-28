@@ -157,13 +157,17 @@
   <ItemGroup>
     <ClInclude Include="Camera.h" />
     <ClInclude Include="CBulet.h" />
+    <ClInclude Include="DXMatrix.h" />
+    <ClInclude Include="DXVector.h" />
     <ClInclude Include="Enemy.h" />
+    <ClInclude Include="Explosion.h" />
     <ClInclude Include="Field.h" />
     <ClInclude Include="GameObject.h" />
     <ClInclude Include="input.h" />
     <ClInclude Include="main.h" />
     <ClInclude Include="manager.h" />
     <ClInclude Include="model.h" />
+    <ClInclude Include="Player.h" />
     <ClInclude Include="polygon2D.h" />
     <ClInclude Include="renderer.h" />
     <ClInclude Include="ResourceManager.h" />
@@ -174,11 +178,13 @@
     <ClCompile Include="Camera.cpp" />
     <ClCompile Include="CBulet.cpp" />
     <ClCompile Include="Enemy.cpp" />
+    <ClCompile Include="Explosion.cpp" />
     <ClCompile Include="Field.cpp" />
     <ClCompile Include="input.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="manager.cpp" />
     <ClCompile Include="model.cpp" />
+    <ClCompile Include="Player.cpp" />
     <ClCompile Include="polygon2D.cpp" />
     <ClCompile Include="renderer.cpp" />
     <ClCompile Include="ResourceManager.cpp" />

@@ -13,17 +13,17 @@ public:
 	virtual void Update() = 0;
 	virtual void Draw() = 0;
 
-	void SetPosition(XMFLOAT3 pos) { m_position = pos; }
+	void SetPosition(DXVector3 pos) { m_position = pos; }
 
-	void SetRotation(XMFLOAT3 rad) { m_rotation = rad; }
+	void SetRotation(DXVector3 rad) { m_rotation = rad; }
 
 	void SetScale(XMFLOAT3 size) { m_scale = size; }
 
-	XMFLOAT3 GetPosition() { return m_position; }
+	DXVector3 GetPosition() { return m_position; }
 
-	XMFLOAT3 GetRotation() { return m_rotation; }
+	DXVector3 GetRotation() { return m_rotation; }
 
-	XMFLOAT3 GetScale() { return m_scale; }
+	DXVector3 GetScale() { return m_scale; }
 
 	void SetDestroy() { m_destroy = true; }
 
@@ -43,9 +43,9 @@ private:
 protected:
 	bool m_destroy = false;
 
-	XMFLOAT3 m_position;
-	XMFLOAT3 m_rotation;
-	XMFLOAT3 m_scale;
+	DXVector3 m_position;
+	DXVector3 m_rotation;
+	DXVector3 m_scale;
 
 };
 

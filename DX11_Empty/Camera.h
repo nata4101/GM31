@@ -12,6 +12,6 @@ public:
 	void Draw();
 	XMMATRIX GetViewMatrix() { return m_viewMatrix; }
 private:
-	XMVECTOR m_target;
+	DXVector3 m_target;
 	XMMATRIX m_viewMatrix;
 };

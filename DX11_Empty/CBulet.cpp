@@ -31,10 +31,9 @@ void CBullet::Update()
 	std::vector<CEnemy*> enemy_list = scene->GetGameObjects<CEnemy>(CScene::THREED_OBJECT);
 
 	for (CEnemy* enemy : enemy_list) {
-		XMFLOAT3 enemyDistance = enemy->GetPosition() - m_position;
+		DXVector3 enemyDistance = enemy->GetPosition() - m_position;
 
-		XMVECTOR length = XMLoadFloat3(&enemyDistance);
-		if (2.0f > XMFlo(&length)) {
+		if (2.0f > enemyDistance.GetLength()) {
 			enemy->SetDestroy();
 			SetDestroy();
 		}

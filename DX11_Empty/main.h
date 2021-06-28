@@ -25,6 +25,7 @@
 #pragma comment (lib, "d3dx11.lib")
 
 #include <DirectXMath.h>
+#include "DXVector.h"
 #include <DirectXPackedVector.h>
 
 #define SCREEN_WIDTH	(960)
