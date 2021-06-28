@@ -17,9 +17,20 @@ c:\users\riki1\source\repos\gm31授業\dx11_empty\explosion.cpp(105): warning C4
 c:\users\riki1\source\repos\gm31授業\dx11_empty\gameobject.h(41): warning C4238: 非標準の拡張機能が使用されています: 右辺値のクラスが左辺値に使用されます。
   Player.cpp
 c:\users\riki1\source\repos\gm31授業\dx11_empty\gameobject.h(41): warning C4238: 非標準の拡張機能が使用されています: 右辺値のクラスが左辺値に使用されます。
+  ResourceManager.cpp
+c:\users\riki1\source\repos\gm31授業\dx11_empty\resourcemanager.cpp(123): warning C4100: 'index': 引数は関数の本体部で 1 度も参照されません。
+  input.cpp
+  main.cpp
+c:\users\riki1\source\repos\gm31授業\dx11_empty\main.cpp(23): warning C4100: 'lpCmdLine': 引数は関数の本体部で 1 度も参照されません。
+c:\users\riki1\source\repos\gm31授業\dx11_empty\main.cpp(23): warning C4100: 'hPrevInstance': 引数は関数の本体部で 1 度も参照されません。
   manager.cpp
 c:\users\riki1\source\repos\gm31授業\dx11_empty\gameobject.h(41): warning C4238: 非標準の拡張機能が使用されています: 右辺値のクラスが左辺値に使用されます。
+  model.cpp
+c:\users\riki1\source\repos\gm31授業\dx11_empty\model.cpp(211): warning C4244: '=': 'int' から 'char' への変換です。データが失われる可能性があります。
+c:\users\riki1\source\repos\gm31授業\dx11_empty\model.cpp(355): warning C4244: '=': 'int' から 'char' への変換です。データが失われる可能性があります。
   polygon2D.cpp
 c:\users\riki1\source\repos\gm31授業\dx11_empty\gameobject.h(41): warning C4238: 非標準の拡張機能が使用されています: 右辺値のクラスが左辺値に使用されます。
+  renderer.cpp
   コードを生成中...
+  LINK : 前回のインクリメンタル リンクで C:\Users\riki1\source\repos\GM31授業\Debug\DX11_Empty.exe が見つからなかったか、ビルドされませんでした。フル リンクを行います。
   DX11_Empty.vcxproj -> C:\Users\riki1\source\repos\GM31授業\Debug\DX11_Empty.exe
