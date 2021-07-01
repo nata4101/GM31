@@ -4,6 +4,7 @@
 #include "ResourceManager.h"
 #include "Scene.h"
 #include "manager.h"
+#include "Camera.h"
 
 
 UINT CExplosion::texture_index;

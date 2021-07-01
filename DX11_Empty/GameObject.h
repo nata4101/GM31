@@ -10,12 +10,14 @@ public:
 	virtual void Uninit() = 0;
 	virtual void Update() = 0;
 	virtual void Draw() = 0;
+	virtual void SetResource(const char* file_name) {};
 
 	void SetPosition(D3DXVECTOR3 pos) { m_position = pos; }
 
 	void SetRotation(D3DXVECTOR3 rad) { m_rotation = rad; }
 
 	void SetScale(D3DXVECTOR3 size) { m_scale = size; }
+
 
 	D3DXVECTOR3 GetPosition() { return m_position; }
 

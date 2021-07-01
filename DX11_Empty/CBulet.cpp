@@ -3,6 +3,8 @@
 #include "ResourceManager.h"
 #include "Scene.h"
 #include "manager.h"
+#include "Enemy.h"
+#include "Explosion.h"
 
 UINT CBullet::model_index;
 

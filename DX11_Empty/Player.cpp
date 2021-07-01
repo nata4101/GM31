@@ -2,6 +2,7 @@
 #include "renderer.h"
 #include "model.h"
 #include "Player.h"
+#include "CBulet.h"
 #include "input.h"
 #include "Scene.h"
 #include "manager.h"

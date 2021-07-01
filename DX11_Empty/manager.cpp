@@ -4,7 +4,8 @@
 #include "Scene.h"
 #include "ResourceManager.h"
 #include "input.h"
-
+#include "Game.h"
+#include "Title.h"
 
 CResourceManager* g_model_manager;
 
@@ -20,8 +21,7 @@ void Manager::Init()
 
 	g_model_manager->Init();
 	
-	m_scene = new CScene();
-	m_scene->Init();
+	SetScene<Title>();
 }
 
 

@@ -4,6 +4,7 @@
 #include "Scene.h"
 #include "Camera.h"
 #include "input.h"
+#include "Player.h"
 
 void CCamera::Init()
 {
