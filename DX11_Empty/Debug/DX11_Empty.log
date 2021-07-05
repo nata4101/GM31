@@ -1,23 +1,8 @@
-﻿  CBulet.cpp
-c:\users\riki1\source\repos\gm31授業\dx11_empty\cbulet.cpp(15): warning C4305: '引数': 'double' から 'float' へ切り詰めます。
-c:\users\riki1\source\repos\gm31授業\dx11_empty\cbulet.cpp(17): warning C4305: '=': 'double' から 'float' へ切り詰めます。
-c:\users\riki1\source\repos\gm31授業\dx11_empty\cbulet.cpp(61): warning C4238: 非標準の拡張機能が使用されています: 右辺値のクラスが左辺値に使用されます。
-  Camera.cpp
-c:\users\riki1\source\repos\gm31授業\dx11_empty\camera.cpp(28): warning C4238: 非標準の拡張機能が使用されています: 右辺値のクラスが左辺値に使用されます。
-  Enemy.cpp
-c:\users\riki1\source\repos\gm31授業\dx11_empty\enemy.cpp(39): warning C4238: 非標準の拡張機能が使用されています: 右辺値のクラスが左辺値に使用されます。
-  Explosion.cpp
-c:\users\riki1\source\repos\gm31授業\dx11_empty\explosion.cpp(90): warning C4238: 非標準の拡張機能が使用されています: 右辺値のクラスが左辺値に使用されます。
-  Field.cpp
-  Player.cpp
-c:\users\riki1\source\repos\gm31授業\dx11_empty\player.cpp(60): warning C4238: 非標準の拡張機能が使用されています: 右辺値のクラスが左辺値に使用されます。
-  ResourceManager.cpp
-c:\users\riki1\source\repos\gm31授業\dx11_empty\resourcemanager.cpp(123): warning C4100: 'index': 引数は関数の本体部で 1 度も参照されません。
-  manager.cpp
-  model.cpp
-c:\users\riki1\source\repos\gm31授業\dx11_empty\model.cpp(211): warning C4244: '=': 'int' から 'char' への変換です。データが失われる可能性があります。
-c:\users\riki1\source\repos\gm31授業\dx11_empty\model.cpp(355): warning C4244: '=': 'int' から 'char' への変換です。データが失われる可能性があります。
-  polygon2D.cpp
-  renderer.cpp
-  コードを生成中...
+﻿  Explosion.cpp
+c:\users\riki1\source\repos\gm31授業\dx11_empty\explosion.cpp(86): warning C4244: '初期化中': 'float' から 'int' への変換です。データが失われる可能性があります。
+c:\users\riki1\source\repos\gm31授業\dx11_empty\explosion.cpp(102): warning C4244: '引数': 'double' から 'float' への変換です。データが失われる可能性があります。
+c:\users\riki1\source\repos\gm31授業\dx11_empty\explosion.cpp(107): warning C4244: '引数': 'double' から 'float' への変換です。データが失われる可能性があります。
+c:\users\riki1\source\repos\gm31授業\dx11_empty\explosion.cpp(112): warning C4244: '引数': 'double' から 'float' への変換です。データが失われる可能性があります。
+c:\users\riki1\source\repos\gm31授業\dx11_empty\explosion.cpp(138): warning C4238: 非標準の拡張機能が使用されています: 右辺値のクラスが左辺値に使用されます。
+c:\users\riki1\source\repos\gm31授業\dx11_empty\explosion.cpp(83): warning C4189: 'c': ローカル変数が初期化されましたが、参照されていません
   DX11_Empty.vcxproj -> C:\Users\riki1\source\repos\GM31授業\Debug\DX11_Empty.exe

@@ -3,6 +3,8 @@
 #include "ResourceManager.h"
 #include "Scene.h"
 #include "manager.h"
+#include "Enemy.h"
+#include "Explosion.h"
 
 UINT CBullet::model_index;
 
@@ -31,11 +33,14 @@ void CBullet::Update()
 	std::vector<CEnemy*> enemy_list = scene->GetGameObjects<CEnemy>(CScene::THREED_OBJECT);
 
 	for (CEnemy* enemy : enemy_list) {
-		DXVector3 enemyDistance = enemy->GetPosition() - m_position;
+		DXVector3 enemyPosition = enemy->GetPosition();
 
-		if (2.0f > enemyDistance.GetLength()) {
+		DXVector3 length = enemyPosition - m_position;
+
+		if (2.0f > length.GetLength()) {
 			enemy->SetDestroy();
 			SetDestroy();
+			scene->AddGameObject<CExplosion>(CScene::THREED_OBJECT)->SetPosition(enemyPosition);
 		}
 	}
 

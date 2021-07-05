@@ -1,6 +1,7 @@
 #include "main.h"
 #include "renderer.h"
 #include "polygon2D.h"
+#include "ResourceManager.h"
 
 using namespace DirectX;
 
@@ -52,13 +53,6 @@ void CPolygon2D::Init()
 		NULL);
 
 	assert(m_Texture);
-
-	renderer->CreateVertexShader(
-		&m_VertexShader,
-		&m_VertexLayout,
-		"unlitTextureVS.cso");
-
-	renderer->CreatePixelShader(&m_PixelShader, "unlitTexturePS.cso");
 }
 
 void CPolygon2D::Uninit()
@@ -66,9 +60,6 @@ void CPolygon2D::Uninit()
 	m_VertexBuffer->Release();
 	m_Texture->Release();
 
-	m_VertexLayout->Release();
-	m_VertexShader->Release();
-	m_PixelShader->Release();
 }
 
 void CPolygon2D::Update()
@@ -77,34 +68,34 @@ void CPolygon2D::Update()
 
 void CPolygon2D::Draw()
 {
-	Renderer* renderer = Renderer::GetInstance();
+	Renderer* render = Renderer::GetInstance();
+	CResourceManager* m_manager = CResourceManager::GetInstance();
 
 	//入力レイアウト設定
-	renderer->GetDeviceContext()->IASetInputLayout(m_VertexLayout);
+	render->GetDeviceContext()->IASetInputLayout(m_manager->GetShaderPac(CResourceManager::ShaderList::TWODSHADER)->m_vertexlayout);
 
 	//シェーダ設定
-	renderer->GetDeviceContext()->VSSetShader(m_VertexShader, NULL, 0);
-	renderer->GetDeviceContext()->PSSetShader(m_PixelShader, NULL, 0);
+	render->GetDeviceContext()->VSSetShader(m_manager->GetShaderPac(CResourceManager::ShaderList::TWODSHADER)->m_vertexshader, NULL, 0);
+	render->GetDeviceContext()->PSSetShader(m_manager->GetShaderPac(CResourceManager::ShaderList::TWODSHADER)->m_pixelshader, NULL, 0);
 
 	//マトリクス設定
-	renderer->SetWorldViewProjection2D();
+	render->SetWorldViewProjection2D();
 
 	//頂点バッファ設定
 	UINT stride = sizeof(VERTEX_3D);
 	UINT offset = 0;
-	renderer->GetDeviceContext()->IASetVertexBuffers(
+	render->GetDeviceContext()->IASetVertexBuffers(
 		0, 1,
 		&m_VertexBuffer,
 		&stride,
 		&offset);
 
 	//テクスチャ設定
-	renderer->GetDeviceContext()->PSSetShaderResources(0, 1, &m_Texture);
+	render->GetDeviceContext()->PSSetShaderResources(0, 1, &m_Texture);
 
 	//プリミティブトポロジ設定
-	renderer->GetDeviceContext()->IASetPrimitiveTopology(D3D11_PRIMITIVE_TOPOLOGY_TRIANGLESTRIP);
+	render->GetDeviceContext()->IASetPrimitiveTopology(D3D11_PRIMITIVE_TOPOLOGY_TRIANGLESTRIP);
 
 	//ポリゴン描画
-	renderer->GetDeviceContext()->Draw(4,0);
-
+	render->GetDeviceContext()->Draw(4, 0);
 }

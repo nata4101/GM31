@@ -25,6 +25,44 @@ public:
 
 	DXVector3 GetScale() { return m_scale; }
 
+	DXVector3 GetForward()
+	{
+		DXMatrix rot;
+		rot = XMMatrixRotationRollPitchYaw(m_rotation.x, m_rotation.y, m_rotation.z);
+
+		DXVector3 forward;
+		
+		forward.x = rot._31;
+		forward.y = rot._32;
+		forward.z = rot._33;
+
+		return forward;
+	}
+
+	DXVector3 GetRight()
+	{
+		DXMatrix rot;
+		rot = XMMatrixRotationRollPitchYaw(m_rotation.x, m_rotation.y, m_rotation.z);
+		rot = XMMatrixRotationY(3.14f / 2.f) * rot.GetMatrix();
+
+		DXVector3 right;
+		right.x = rot._31;
+		right.y = rot._32;
+		right.z = rot._33;
+
+		return right;
+
+	}
+
+	DXVector3 GetUp()
+	{
+		DXVector3 up;
+
+		up = XMVector3Cross(GetForward().GetVector(), GetRight().GetVector());
+
+		return up;
+	}
+
 	void SetDestroy() { m_destroy = true; }
 
 	bool Destroy()

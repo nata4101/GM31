@@ -1,16 +1,11 @@
 #pragma once
-#include "polygon2D.h"
-#include "Field.h"
-#include "Camera.h"
-#include "Enemy.h"
-#include "model.h"
-#include "Player.h"
-#include "CBulet.h"
+
 #include <list>
 #include <typeinfo>
 #include <vector>
-#include "Explosion.h"
-#include "Scene.h"
+#include "GameObject.h"
+
+
 
 class CScene
 {
@@ -25,25 +20,7 @@ public:
 	CScene() {}
 	virtual ~CScene() {}
 
-	virtual void Init() {
-		AddGameObject<CCamera>(CAMERA_OBJECT);
-
-		AddGameObject<CField>(THREED_OBJECT);
-
-		AddGameObject<CPlayer>(THREED_OBJECT);
-
-		AddGameObject<CEnemy>(THREED_OBJECT)->SetPosition(XMFLOAT3(-3, 1, 5));
-
-		AddGameObject<CEnemy>(THREED_OBJECT)->SetPosition(XMFLOAT3(0, 1, 5));
-
-		AddGameObject<CEnemy>(THREED_OBJECT)->SetPosition(XMFLOAT3(3, 1, 5));
-
-		//AddGameObject<CBullet>();
-
-		//AddGameObject<CPolygon2D>(TWOD_OBJECT);
-		AddGameObject<CExplosion>(THREED_OBJECT);
-
-	}
+	virtual void Init() = 0;
 	virtual void Uninit() {
 		for (int i = 0; i < MAX_LAYER; i++) {
 			for (CGameObject* object : m_gameobject[i]) {
@@ -83,11 +60,13 @@ public:
 	template <typename T>
 	T* GetGameObject()
 	{
+		T* obj;
 		for (int i = 0; i < MAX_LAYER; i++) {
 			for (CGameObject* object : m_gameobject[i])
 				if (typeid(*object) == typeid(T))
 				{
-					return (T*)object;
+					obj = (T*)object;
+					return  obj;
 				}
 
 		}
