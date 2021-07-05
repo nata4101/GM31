@@ -84,7 +84,7 @@ public:
 	T* GetGameObject()
 	{
 		for (int i = 0; i < MAX_LAYER; i++) {
-			for (CGameObject* object : m_gameobject)
+			for (CGameObject* object : m_gameobject[i])
 				if (typeid(*object) == typeid(T))
 				{
 					return (T*)object;

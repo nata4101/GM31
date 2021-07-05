@@ -10,8 +10,8 @@ public:
 	void Uninit();
 	void Update();
 	void Draw();
-	XMMATRIX GetViewMatrix() { return m_viewMatrix; }
+	DXMatrix GetViewMatrix() { return m_viewMatrix; }
 private:
 	DXVector3 m_target;
-	XMMATRIX m_viewMatrix;
+	DXMatrix m_viewMatrix;
 };

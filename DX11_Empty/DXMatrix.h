@@ -58,6 +58,16 @@ public:
 
 	XMMATRIX GetMatrix(void) { return XMLoadFloat4x4(this); }
 
+	XMMATRIX SetTransform(DXVector3 position, DXVector3 rotation, DXVector3 size)
+	{
+		DXMatrix scale, rot, trans;
+		scale = XMMatrixScaling(size.x, size.y, size.z);
+		rot = XMMatrixRotationRollPitchYaw(rotation.x, rotation.y, rotation.z);
+		trans = XMMatrixTranslation(position.x, position.y, position.z);
+		*this = scale * rot * trans;
+		return this->GetMatrix();
+	}
+
 
 private:
 

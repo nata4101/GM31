@@ -1,137 +1,23 @@
-﻿  Camera.cpp
-  CBulet.cpp
+﻿  CBulet.cpp
 c:\users\riki1\source\repos\gm31授業\dx11_empty\cbulet.cpp(15): warning C4305: '引数': 'double' から 'float' へ切り詰めます。
 c:\users\riki1\source\repos\gm31授業\dx11_empty\cbulet.cpp(17): warning C4305: '=': 'double' から 'float' へ切り詰めます。
-c:\users\riki1\source\repos\gm31授業\dx11_empty\cbulet.cpp(37): error C3861: 'XMFlo': 識別子が見つかりませんでした
-c:\users\riki1\source\repos\gm31授業\dx11_empty\cbulet.cpp(65): error C2664: 'void Renderer::SetWorldMatrix(DirectX::XMMATRIX *)': 引数 1 を 'D3DXMATRIX *' から 'DirectX::XMMATRIX *' へ変換できません。
-  c:\users\riki1\source\repos\gm31授業\dx11_empty\cbulet.cpp(65): note: 指示された型は関連がありません。変換には reinterpret_cast、C スタイル キャストまたは関数スタイルのキャストが必要です。
+c:\users\riki1\source\repos\gm31授業\dx11_empty\cbulet.cpp(61): warning C4238: 非標準の拡張機能が使用されています: 右辺値のクラスが左辺値に使用されます。
+  Camera.cpp
+c:\users\riki1\source\repos\gm31授業\dx11_empty\camera.cpp(28): warning C4238: 非標準の拡張機能が使用されています: 右辺値のクラスが左辺値に使用されます。
   Enemy.cpp
-c:\users\riki1\source\repos\gm31授業\dx11_empty\enemy.cpp(11): error C2679: 二項演算子 '=': 型 'D3DXVECTOR3' の右オペランドを扱う演算子が見つかりません (または変換できません)。
-  c:\users\riki1\source\repos\gm31授業\dx11_empty\dxvector.h(170): note: 'DXVector3 &DXVector3::operator =(const DXVector3 &)' の可能性があります
-  c:\users\riki1\source\repos\gm31授業\dx11_empty\dxvector.h(163): note: または 'void DXVector3::operator =(DirectX::XMVECTOR)'
-  c:\users\riki1\source\repos\gm31授業\dx11_empty\enemy.cpp(11): note: 引数リスト '(DXVector3, D3DXVECTOR3)' を一致させようとしているとき
-c:\users\riki1\source\repos\gm31授業\dx11_empty\enemy.cpp(12): error C2679: 二項演算子 '=': 型 'D3DXVECTOR3' の右オペランドを扱う演算子が見つかりません (または変換できません)。
-  c:\users\riki1\source\repos\gm31授業\dx11_empty\dxvector.h(170): note: 'DXVector3 &DXVector3::operator =(const DXVector3 &)' の可能性があります
-  c:\users\riki1\source\repos\gm31授業\dx11_empty\dxvector.h(163): note: または 'void DXVector3::operator =(DirectX::XMVECTOR)'
-  c:\users\riki1\source\repos\gm31授業\dx11_empty\enemy.cpp(12): note: 引数リスト '(DXVector3, D3DXVECTOR3)' を一致させようとしているとき
-c:\users\riki1\source\repos\gm31授業\dx11_empty\enemy.cpp(13): error C2679: 二項演算子 '=': 型 'D3DXVECTOR3' の右オペランドを扱う演算子が見つかりません (または変換できません)。
-  c:\users\riki1\source\repos\gm31授業\dx11_empty\dxvector.h(170): note: 'DXVector3 &DXVector3::operator =(const DXVector3 &)' の可能性があります
-  c:\users\riki1\source\repos\gm31授業\dx11_empty\dxvector.h(163): note: または 'void DXVector3::operator =(DirectX::XMVECTOR)'
-  c:\users\riki1\source\repos\gm31授業\dx11_empty\enemy.cpp(13): note: 引数リスト '(DXVector3, D3DXVECTOR3)' を一致させようとしているとき
-c:\users\riki1\source\repos\gm31授業\dx11_empty\enemy.cpp(41): error C2664: 'void Renderer::SetWorldMatrix(DirectX::XMMATRIX *)': 引数 1 を 'D3DXMATRIX *' から 'DirectX::XMMATRIX *' へ変換できません。
-  c:\users\riki1\source\repos\gm31授業\dx11_empty\enemy.cpp(41): note: 指示された型は関連がありません。変換には reinterpret_cast、C スタイル キャストまたは関数スタイルのキャストが必要です。
+c:\users\riki1\source\repos\gm31授業\dx11_empty\enemy.cpp(39): warning C4238: 非標準の拡張機能が使用されています: 右辺値のクラスが左辺値に使用されます。
   Explosion.cpp
-c:\users\riki1\source\repos\gm31授業\dx11_empty\explosion.cpp(19): error C2679: 二項演算子 '=': 型 'D3DXVECTOR3' の右オペランドを扱う演算子が見つかりません (または変換できません)。
-  c:\users\riki1\source\repos\gm31授業\dx11_empty\dxvector.h(170): note: 'DXVector3 &DXVector3::operator =(const DXVector3 &)' の可能性があります
-  c:\users\riki1\source\repos\gm31授業\dx11_empty\dxvector.h(163): note: または 'void DXVector3::operator =(DirectX::XMVECTOR)'
-  c:\users\riki1\source\repos\gm31授業\dx11_empty\explosion.cpp(19): note: 引数リスト '(DXVector3, D3DXVECTOR3)' を一致させようとしているとき
-c:\users\riki1\source\repos\gm31授業\dx11_empty\explosion.cpp(20): error C2679: 二項演算子 '=': 型 'D3DXVECTOR3' の右オペランドを扱う演算子が見つかりません (または変換できません)。
-  c:\users\riki1\source\repos\gm31授業\dx11_empty\dxvector.h(170): note: 'DXVector3 &DXVector3::operator =(const DXVector3 &)' の可能性があります
-  c:\users\riki1\source\repos\gm31授業\dx11_empty\dxvector.h(163): note: または 'void DXVector3::operator =(DirectX::XMVECTOR)'
-  c:\users\riki1\source\repos\gm31授業\dx11_empty\explosion.cpp(20): note: 引数リスト '(DXVector3, D3DXVECTOR3)' を一致させようとしているとき
-c:\users\riki1\source\repos\gm31授業\dx11_empty\explosion.cpp(21): error C2679: 二項演算子 '=': 型 'D3DXVECTOR4' の右オペランドを扱う演算子が見つかりません (または変換できません)。
-  c:\users\riki1\source\repos\gm31授業\dx11_empty\dxvector.h(87): note: 'DXVector4 &DXVector4::operator =(const DXVector4 &)' の可能性があります
-  c:\users\riki1\source\repos\gm31授業\dx11_empty\dxvector.h(81): note: または 'void DXVector4::operator =(DirectX::XMVECTOR)'
-  c:\users\riki1\source\repos\gm31授業\dx11_empty\explosion.cpp(21): note: 引数リスト '(DXVector4, D3DXVECTOR4)' を一致させようとしているとき
-c:\users\riki1\source\repos\gm31授業\dx11_empty\explosion.cpp(22): error C2679: 二項演算子 '=': 型 'D3DXVECTOR2' の右オペランドを扱う演算子が見つかりません (または変換できません)。
-  c:\users\riki1\source\repos\gm31授業\dx11_empty\dxvector.h(253): note: 'DXVector2 &DXVector2::operator =(const DXVector2 &)' の可能性があります
-  c:\users\riki1\source\repos\gm31授業\dx11_empty\dxvector.h(246): note: または 'void DXVector2::operator =(DirectX::XMVECTOR)'
-  c:\users\riki1\source\repos\gm31授業\dx11_empty\explosion.cpp(22): note: 引数リスト '(DXVector2, D3DXVECTOR2)' を一致させようとしているとき
-c:\users\riki1\source\repos\gm31授業\dx11_empty\explosion.cpp(24): error C2679: 二項演算子 '=': 型 'D3DXVECTOR3' の右オペランドを扱う演算子が見つかりません (または変換できません)。
-  c:\users\riki1\source\repos\gm31授業\dx11_empty\dxvector.h(170): note: 'DXVector3 &DXVector3::operator =(const DXVector3 &)' の可能性があります
-  c:\users\riki1\source\repos\gm31授業\dx11_empty\dxvector.h(163): note: または 'void DXVector3::operator =(DirectX::XMVECTOR)'
-  c:\users\riki1\source\repos\gm31授業\dx11_empty\explosion.cpp(24): note: 引数リスト '(DXVector3, D3DXVECTOR3)' を一致させようとしているとき
-c:\users\riki1\source\repos\gm31授業\dx11_empty\explosion.cpp(25): error C2679: 二項演算子 '=': 型 'D3DXVECTOR3' の右オペランドを扱う演算子が見つかりません (または変換できません)。
-  c:\users\riki1\source\repos\gm31授業\dx11_empty\dxvector.h(170): note: 'DXVector3 &DXVector3::operator =(const DXVector3 &)' の可能性があります
-  c:\users\riki1\source\repos\gm31授業\dx11_empty\dxvector.h(163): note: または 'void DXVector3::operator =(DirectX::XMVECTOR)'
-  c:\users\riki1\source\repos\gm31授業\dx11_empty\explosion.cpp(25): note: 引数リスト '(DXVector3, D3DXVECTOR3)' を一致させようとしているとき
-c:\users\riki1\source\repos\gm31授業\dx11_empty\explosion.cpp(26): error C2679: 二項演算子 '=': 型 'D3DXVECTOR4' の右オペランドを扱う演算子が見つかりません (または変換できません)。
-  c:\users\riki1\source\repos\gm31授業\dx11_empty\dxvector.h(87): note: 'DXVector4 &DXVector4::operator =(const DXVector4 &)' の可能性があります
-  c:\users\riki1\source\repos\gm31授業\dx11_empty\dxvector.h(81): note: または 'void DXVector4::operator =(DirectX::XMVECTOR)'
-  c:\users\riki1\source\repos\gm31授業\dx11_empty\explosion.cpp(26): note: 引数リスト '(DXVector4, D3DXVECTOR4)' を一致させようとしているとき
-c:\users\riki1\source\repos\gm31授業\dx11_empty\explosion.cpp(27): error C2679: 二項演算子 '=': 型 'D3DXVECTOR2' の右オペランドを扱う演算子が見つかりません (または変換できません)。
-  c:\users\riki1\source\repos\gm31授業\dx11_empty\dxvector.h(253): note: 'DXVector2 &DXVector2::operator =(const DXVector2 &)' の可能性があります
-  c:\users\riki1\source\repos\gm31授業\dx11_empty\dxvector.h(246): note: または 'void DXVector2::operator =(DirectX::XMVECTOR)'
-  c:\users\riki1\source\repos\gm31授業\dx11_empty\explosion.cpp(27): note: 引数リスト '(DXVector2, D3DXVECTOR2)' を一致させようとしているとき
-c:\users\riki1\source\repos\gm31授業\dx11_empty\explosion.cpp(29): error C2679: 二項演算子 '=': 型 'D3DXVECTOR3' の右オペランドを扱う演算子が見つかりません (または変換できません)。
-  c:\users\riki1\source\repos\gm31授業\dx11_empty\dxvector.h(170): note: 'DXVector3 &DXVector3::operator =(const DXVector3 &)' の可能性があります
-  c:\users\riki1\source\repos\gm31授業\dx11_empty\dxvector.h(163): note: または 'void DXVector3::operator =(DirectX::XMVECTOR)'
-  c:\users\riki1\source\repos\gm31授業\dx11_empty\explosion.cpp(29): note: 引数リスト '(DXVector3, D3DXVECTOR3)' を一致させようとしているとき
-c:\users\riki1\source\repos\gm31授業\dx11_empty\explosion.cpp(30): error C2679: 二項演算子 '=': 型 'D3DXVECTOR3' の右オペランドを扱う演算子が見つかりません (または変換できません)。
-  c:\users\riki1\source\repos\gm31授業\dx11_empty\dxvector.h(170): note: 'DXVector3 &DXVector3::operator =(const DXVector3 &)' の可能性があります
-  c:\users\riki1\source\repos\gm31授業\dx11_empty\dxvector.h(163): note: または 'void DXVector3::operator =(DirectX::XMVECTOR)'
-  c:\users\riki1\source\repos\gm31授業\dx11_empty\explosion.cpp(30): note: 引数リスト '(DXVector3, D3DXVECTOR3)' を一致させようとしているとき
-c:\users\riki1\source\repos\gm31授業\dx11_empty\explosion.cpp(31): error C2679: 二項演算子 '=': 型 'D3DXVECTOR4' の右オペランドを扱う演算子が見つかりません (または変換できません)。
-  c:\users\riki1\source\repos\gm31授業\dx11_empty\dxvector.h(87): note: 'DXVector4 &DXVector4::operator =(const DXVector4 &)' の可能性があります
-  c:\users\riki1\source\repos\gm31授業\dx11_empty\dxvector.h(81): note: または 'void DXVector4::operator =(DirectX::XMVECTOR)'
-  c:\users\riki1\source\repos\gm31授業\dx11_empty\explosion.cpp(31): note: 引数リスト '(DXVector4, D3DXVECTOR4)' を一致させようとしているとき
-c:\users\riki1\source\repos\gm31授業\dx11_empty\explosion.cpp(32): error C2679: 二項演算子 '=': 型 'D3DXVECTOR2' の右オペランドを扱う演算子が見つかりません (または変換できません)。
-  c:\users\riki1\source\repos\gm31授業\dx11_empty\dxvector.h(253): note: 'DXVector2 &DXVector2::operator =(const DXVector2 &)' の可能性があります
-  c:\users\riki1\source\repos\gm31授業\dx11_empty\dxvector.h(246): note: または 'void DXVector2::operator =(DirectX::XMVECTOR)'
-  c:\users\riki1\source\repos\gm31授業\dx11_empty\explosion.cpp(32): note: 引数リスト '(DXVector2, D3DXVECTOR2)' を一致させようとしているとき
-c:\users\riki1\source\repos\gm31授業\dx11_empty\explosion.cpp(34): error C2679: 二項演算子 '=': 型 'D3DXVECTOR3' の右オペランドを扱う演算子が見つかりません (または変換できません)。
-  c:\users\riki1\source\repos\gm31授業\dx11_empty\dxvector.h(170): note: 'DXVector3 &DXVector3::operator =(const DXVector3 &)' の可能性があります
-  c:\users\riki1\source\repos\gm31授業\dx11_empty\dxvector.h(163): note: または 'void DXVector3::operator =(DirectX::XMVECTOR)'
-  c:\users\riki1\source\repos\gm31授業\dx11_empty\explosion.cpp(34): note: 引数リスト '(DXVector3, D3DXVECTOR3)' を一致させようとしているとき
-c:\users\riki1\source\repos\gm31授業\dx11_empty\explosion.cpp(35): error C2679: 二項演算子 '=': 型 'D3DXVECTOR3' の右オペランドを扱う演算子が見つかりません (または変換できません)。
-  c:\users\riki1\source\repos\gm31授業\dx11_empty\dxvector.h(170): note: 'DXVector3 &DXVector3::operator =(const DXVector3 &)' の可能性があります
-  c:\users\riki1\source\repos\gm31授業\dx11_empty\dxvector.h(163): note: または 'void DXVector3::operator =(DirectX::XMVECTOR)'
-  c:\users\riki1\source\repos\gm31授業\dx11_empty\explosion.cpp(35): note: 引数リスト '(DXVector3, D3DXVECTOR3)' を一致させようとしているとき
-c:\users\riki1\source\repos\gm31授業\dx11_empty\explosion.cpp(36): error C2679: 二項演算子 '=': 型 'D3DXVECTOR4' の右オペランドを扱う演算子が見つかりません (または変換できません)。
-  c:\users\riki1\source\repos\gm31授業\dx11_empty\dxvector.h(87): note: 'DXVector4 &DXVector4::operator =(const DXVector4 &)' の可能性があります
-  c:\users\riki1\source\repos\gm31授業\dx11_empty\dxvector.h(81): note: または 'void DXVector4::operator =(DirectX::XMVECTOR)'
-  c:\users\riki1\source\repos\gm31授業\dx11_empty\explosion.cpp(36): note: 引数リスト '(DXVector4, D3DXVECTOR4)' を一致させようとしているとき
-c:\users\riki1\source\repos\gm31授業\dx11_empty\explosion.cpp(37): error C2679: 二項演算子 '=': 型 'D3DXVECTOR2' の右オペランドを扱う演算子が見つかりません (または変換できません)。
-  c:\users\riki1\source\repos\gm31授業\dx11_empty\dxvector.h(253): note: 'DXVector2 &DXVector2::operator =(const DXVector2 &)' の可能性があります
-  c:\users\riki1\source\repos\gm31授業\dx11_empty\dxvector.h(246): note: または 'void DXVector2::operator =(DirectX::XMVECTOR)'
-  c:\users\riki1\source\repos\gm31授業\dx11_empty\explosion.cpp(37): note: 引数リスト '(DXVector2, D3DXVECTOR2)' を一致させようとしているとき
-c:\users\riki1\source\repos\gm31授業\dx11_empty\explosion.cpp(51): error C2679: 二項演算子 '=': 型 'D3DXVECTOR3' の右オペランドを扱う演算子が見つかりません (または変換できません)。
-  c:\users\riki1\source\repos\gm31授業\dx11_empty\dxvector.h(170): note: 'DXVector3 &DXVector3::operator =(const DXVector3 &)' の可能性があります
-  c:\users\riki1\source\repos\gm31授業\dx11_empty\dxvector.h(163): note: または 'void DXVector3::operator =(DirectX::XMVECTOR)'
-  c:\users\riki1\source\repos\gm31授業\dx11_empty\explosion.cpp(51): note: 引数リスト '(DXVector3, D3DXVECTOR3)' を一致させようとしているとき
-c:\users\riki1\source\repos\gm31授業\dx11_empty\explosion.cpp(52): error C2679: 二項演算子 '=': 型 'D3DXVECTOR3' の右オペランドを扱う演算子が見つかりません (または変換できません)。
-  c:\users\riki1\source\repos\gm31授業\dx11_empty\dxvector.h(170): note: 'DXVector3 &DXVector3::operator =(const DXVector3 &)' の可能性があります
-  c:\users\riki1\source\repos\gm31授業\dx11_empty\dxvector.h(163): note: または 'void DXVector3::operator =(DirectX::XMVECTOR)'
-  c:\users\riki1\source\repos\gm31授業\dx11_empty\explosion.cpp(52): note: 引数リスト '(DXVector3, D3DXVECTOR3)' を一致させようとしているとき
-c:\users\riki1\source\repos\gm31授業\dx11_empty\explosion.cpp(53): error C2679: 二項演算子 '=': 型 'D3DXVECTOR3' の右オペランドを扱う演算子が見つかりません (または変換できません)。
-  c:\users\riki1\source\repos\gm31授業\dx11_empty\dxvector.h(170): note: 'DXVector3 &DXVector3::operator =(const DXVector3 &)' の可能性があります
-  c:\users\riki1\source\repos\gm31授業\dx11_empty\dxvector.h(163): note: または 'void DXVector3::operator =(DirectX::XMVECTOR)'
-  c:\users\riki1\source\repos\gm31授業\dx11_empty\explosion.cpp(53): note: 引数リスト '(DXVector3, D3DXVECTOR3)' を一致させようとしているとき
-c:\users\riki1\source\repos\gm31授業\dx11_empty\explosion.cpp(77): error C2440: '初期化中': 'DirectX::XMMATRIX' から 'D3DXMATRIX' に変換できません。
-  c:\users\riki1\source\repos\gm31授業\dx11_empty\explosion.cpp(77): note: この変換を実行可能なユーザー定義変換演算子がないか、または演算子を呼び出せません。
-c:\users\riki1\source\repos\gm31授業\dx11_empty\explosion.cpp(90): error C2664: 'void Renderer::SetWorldMatrix(DirectX::XMMATRIX *)': 引数 1 を 'D3DXMATRIX *' から 'DirectX::XMMATRIX *' へ変換できません。
-  c:\users\riki1\source\repos\gm31授業\dx11_empty\explosion.cpp(90): note: 指示された型は関連がありません。変換には reinterpret_cast、C スタイル キャストまたは関数スタイルのキャストが必要です。
-c:\users\riki1\source\repos\gm31授業\dx11_empty\explosion.cpp(104): error C2679: 二項演算子 '=': 型 'D3DXCOLOR' の右オペランドを扱う演算子が見つかりません (または変換できません)。
-  c:\users\riki1\source\repos\gm31授業\dx11_empty\dxvector.h(87): note: 'DXVector4 &DXVector4::operator =(const DXVector4 &)' の可能性があります
-  c:\users\riki1\source\repos\gm31授業\dx11_empty\dxvector.h(81): note: または 'void DXVector4::operator =(DirectX::XMVECTOR)'
-  c:\users\riki1\source\repos\gm31授業\dx11_empty\explosion.cpp(104): note: 引数リスト '(DXVector4, D3DXCOLOR)' を一致させようとしているとき
+c:\users\riki1\source\repos\gm31授業\dx11_empty\explosion.cpp(90): warning C4238: 非標準の拡張機能が使用されています: 右辺値のクラスが左辺値に使用されます。
   Field.cpp
-  input.cpp
-  main.cpp
-c:\users\riki1\source\repos\gm31授業\dx11_empty\main.cpp(22): warning C4100: 'lpCmdLine': 引数は関数の本体部で 1 度も参照されません。
-c:\users\riki1\source\repos\gm31授業\dx11_empty\main.cpp(22): warning C4100: 'hPrevInstance': 引数は関数の本体部で 1 度も参照されません。
+  Player.cpp
+c:\users\riki1\source\repos\gm31授業\dx11_empty\player.cpp(60): warning C4238: 非標準の拡張機能が使用されています: 右辺値のクラスが左辺値に使用されます。
+  ResourceManager.cpp
+c:\users\riki1\source\repos\gm31授業\dx11_empty\resourcemanager.cpp(123): warning C4100: 'index': 引数は関数の本体部で 1 度も参照されません。
   manager.cpp
-c:\users\riki1\source\repos\gm31授業\dx11_empty\manager.cpp(23): error C2597: 静的でないメンバー 'Manager::m_scene' への参照が正しくありません。
   model.cpp
 c:\users\riki1\source\repos\gm31授業\dx11_empty\model.cpp(211): warning C4244: '=': 'int' から 'char' への変換です。データが失われる可能性があります。
 c:\users\riki1\source\repos\gm31授業\dx11_empty\model.cpp(355): warning C4244: '=': 'int' から 'char' への変換です。データが失われる可能性があります。
-  Player.cpp
-c:\users\riki1\source\repos\gm31授業\dx11_empty\player.cpp(16): error C2679: 二項演算子 '=': 型 'D3DXVECTOR3' の右オペランドを扱う演算子が見つかりません (または変換できません)。
-  c:\users\riki1\source\repos\gm31授業\dx11_empty\dxvector.h(170): note: 'DXVector3 &DXVector3::operator =(const DXVector3 &)' の可能性があります
-  c:\users\riki1\source\repos\gm31授業\dx11_empty\dxvector.h(163): note: または 'void DXVector3::operator =(DirectX::XMVECTOR)'
-  c:\users\riki1\source\repos\gm31授業\dx11_empty\player.cpp(16): note: 引数リスト '(DXVector3, D3DXVECTOR3)' を一致させようとしているとき
-c:\users\riki1\source\repos\gm31授業\dx11_empty\player.cpp(17): error C2679: 二項演算子 '=': 型 'D3DXVECTOR3' の右オペランドを扱う演算子が見つかりません (または変換できません)。
-  c:\users\riki1\source\repos\gm31授業\dx11_empty\dxvector.h(170): note: 'DXVector3 &DXVector3::operator =(const DXVector3 &)' の可能性があります
-  c:\users\riki1\source\repos\gm31授業\dx11_empty\dxvector.h(163): note: または 'void DXVector3::operator =(DirectX::XMVECTOR)'
-  c:\users\riki1\source\repos\gm31授業\dx11_empty\player.cpp(17): note: 引数リスト '(DXVector3, D3DXVECTOR3)' を一致させようとしているとき
-c:\users\riki1\source\repos\gm31授業\dx11_empty\player.cpp(18): error C2679: 二項演算子 '=': 型 'D3DXVECTOR3' の右オペランドを扱う演算子が見つかりません (または変換できません)。
-  c:\users\riki1\source\repos\gm31授業\dx11_empty\dxvector.h(170): note: 'DXVector3 &DXVector3::operator =(const DXVector3 &)' の可能性があります
-  c:\users\riki1\source\repos\gm31授業\dx11_empty\dxvector.h(163): note: または 'void DXVector3::operator =(DirectX::XMVECTOR)'
-  c:\users\riki1\source\repos\gm31授業\dx11_empty\player.cpp(18): note: 引数リスト '(DXVector3, D3DXVECTOR3)' を一致させようとしているとき
-c:\users\riki1\source\repos\gm31授業\dx11_empty\player.cpp(63): error C2664: 'void Renderer::SetWorldMatrix(DirectX::XMMATRIX *)': 引数 1 を 'D3DXMATRIX *' から 'DirectX::XMMATRIX *' へ変換できません。
-  c:\users\riki1\source\repos\gm31授業\dx11_empty\player.cpp(63): note: 指示された型は関連がありません。変換には reinterpret_cast、C スタイル キャストまたは関数スタイルのキャストが必要です。
   polygon2D.cpp
   renderer.cpp
-  ResourceManager.cpp
-c:\users\riki1\source\repos\gm31授業\dx11_empty\resourcemanager.cpp(123): warning C4100: 'index': 引数は関数の本体部で 1 度も参照されません。
   コードを生成中...
+  DX11_Empty.vcxproj -> C:\Users\riki1\source\repos\GM31授業\Debug\DX11_Empty.exe

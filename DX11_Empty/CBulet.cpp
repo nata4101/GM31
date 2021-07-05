@@ -56,12 +56,9 @@ void CBullet::Draw()
 	renderer->GetDeviceContext()->PSSetShader(m_manager->GetShaderPac(CResourceManager::ShaderList::THREEDSHADER)->m_pixelshader, NULL, 0);
 
 	//マトリクス設定
-	D3DXMATRIX world, scale, rot, trans;
-	D3DXMatrixScaling(&scale, m_scale.x, m_scale.y, m_scale.z);
-	D3DXMatrixRotationYawPitchRoll(&rot, m_rotation.y, m_rotation.x, m_rotation.z);
-	D3DXMatrixTranslation(&trans, m_position.x, m_position.y, m_position.z);
-	world = scale * rot*trans;
-	renderer->SetWorldMatrix(&world);
+	DXMatrix world;
+	world.SetTransform(m_position, m_rotation, m_scale);
+	renderer->SetWorldMatrix(&world.GetMatrix());
 
 	m_manager->GetModel(model_index)->Draw();
 }

@@ -1,6 +1,7 @@
 #pragma once
+#include "GameObject.h"
 
-class CField
+class CField : public CGameObject
 {
 public:
 
@@ -10,9 +11,6 @@ public:
 	void Draw();
 
 private:
-	DXVector3 m_position;
-	DXVector3 m_rotation;
-	DXVector3 m_scale;
 
 	ID3D11Buffer*				m_VertexBuffer = NULL;
 	ID3D11ShaderResourceView*	m_Texture = NULL;

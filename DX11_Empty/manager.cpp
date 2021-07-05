@@ -1,9 +1,9 @@
 #include "main.h"
-#include "manager.h"
 #include "renderer.h"
 #include "Scene.h"
 #include "ResourceManager.h"
 #include "input.h"
+#include "manager.h"
 
 
 CResourceManager* g_model_manager;

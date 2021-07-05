@@ -26,6 +26,7 @@
 
 #include <DirectXMath.h>
 #include "DXVector.h"
+#include "DXMatrix.h"
 #include <DirectXPackedVector.h>
 
 #define SCREEN_WIDTH	(960)
