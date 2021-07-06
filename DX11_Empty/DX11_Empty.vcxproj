@@ -161,6 +161,7 @@
     <ClInclude Include="DXVector.h" />
     <ClInclude Include="Enemy.h" />
     <ClInclude Include="Explosion.h" />
+    <ClInclude Include="FBXAnimation11.h" />
     <ClInclude Include="Field.h" />
     <ClInclude Include="Game.h" />
     <ClInclude Include="GameObject.h" />

@@ -1,8 +1,1 @@
-﻿  Explosion.cpp
-c:\users\riki1\source\repos\gm31授業\dx11_empty\explosion.cpp(86): warning C4244: '初期化中': 'float' から 'int' への変換です。データが失われる可能性があります。
-c:\users\riki1\source\repos\gm31授業\dx11_empty\explosion.cpp(102): warning C4244: '引数': 'double' から 'float' への変換です。データが失われる可能性があります。
-c:\users\riki1\source\repos\gm31授業\dx11_empty\explosion.cpp(107): warning C4244: '引数': 'double' から 'float' への変換です。データが失われる可能性があります。
-c:\users\riki1\source\repos\gm31授業\dx11_empty\explosion.cpp(112): warning C4244: '引数': 'double' から 'float' への変換です。データが失われる可能性があります。
-c:\users\riki1\source\repos\gm31授業\dx11_empty\explosion.cpp(138): warning C4238: 非標準の拡張機能が使用されています: 右辺値のクラスが左辺値に使用されます。
-c:\users\riki1\source\repos\gm31授業\dx11_empty\explosion.cpp(83): warning C4189: 'c': ローカル変数が初期化されましたが、参照されていません
-  DX11_Empty.vcxproj -> C:\Users\riki1\source\repos\GM31授業\Debug\DX11_Empty.exe
+﻿  DX11_Empty.vcxproj -> C:\Users\riki1\source\repos\GM31授業\Debug\DX11_Empty.exe
