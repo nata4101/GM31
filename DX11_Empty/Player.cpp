@@ -7,8 +7,11 @@
 #include "Scene.h"
 #include "manager.h"
 #include "ResourceManager.h"
+#include "audio.h"
 
 UINT  CPlayer::model_index;
+
+Audio* shot_sound;
 
 void CPlayer::Init()
 {
@@ -17,6 +20,9 @@ void CPlayer::Init()
 	m_position	= XMFLOAT3(0, 0, 0);
 	m_rotation	= XMFLOAT3(0, 0, 0);
 	m_scale		= XMFLOAT3(1, 1, 1);
+
+	shot_sound = Manager::GetInstance()->GetScene()->AddGameObject<Audio>(CScene::THREED_OBJECT);
+	shot_sound->Load("asset/sound/shoot.wav");
 }
 
 void CPlayer::Uninit()
@@ -41,6 +47,7 @@ void CPlayer::Update()
 	if (Input::GetKeyTrigger(VK_SPACE)) {
 		CScene* scene = manager->GetScene();
 		CBullet* bullet;
+		shot_sound->Play(false);
 		bullet = scene->AddGameObject<CBullet>(CScene::THREED_OBJECT);
 		bullet->SetPosition(m_position);
 		bullet->SetDirection(GetForward());

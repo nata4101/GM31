@@ -6,6 +6,7 @@
 #include "input.h"
 #include "Game.h"
 #include "Title.h"
+#include "audio.h"
 
 
 CResourceManager* g_model_manager;
@@ -17,6 +18,8 @@ void Manager::Init()
 	renderer = Renderer::GetInstance();
 	Input::Init();
 	renderer->Renderer::Init();
+
+	Audio::InitMaster();
 
 	g_model_manager = CResourceManager::GetInstance();
 
@@ -31,6 +34,7 @@ void Manager::Uninit()
 {
 	m_scene->Uninit();
 	renderer->Uninit();
+	Audio::UninitMaster();
 	CResourceManager::GetInstance()->UnloadModelPacAll();
 	Input::Uninit();
 }
