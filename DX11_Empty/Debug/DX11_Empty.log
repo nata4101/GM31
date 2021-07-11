@@ -1,1 +1,3 @@
-﻿  DX11_Empty.vcxproj -> C:\Users\riki1\source\repos\GM31授業\Debug\DX11_Empty.exe
+﻿  FBXAnimation11.cpp
+c:\users\riki1\source\repos\gm31授業\dx11_empty\fbxanimation11.cpp(151): warning C4238: 非標準の拡張機能が使用されています: 右辺値のクラスが左辺値に使用されます。
+  DX11_Empty.vcxproj -> C:\Users\riki1\source\repos\GM31授業\Debug\DX11_Empty.exe

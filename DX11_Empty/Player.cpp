@@ -6,9 +6,11 @@
 #include "input.h"
 #include "Scene.h"
 #include "manager.h"
+#include "FBXAnimation11.h"
 #include "ResourceManager.h"
 
 UINT  CPlayer::model_index;
+CFbxAnimation anime;
 
 void CPlayer::Init()
 {
@@ -17,6 +19,8 @@ void CPlayer::Init()
 	m_position	= XMFLOAT3(0, 0, 0);
 	m_rotation	= XMFLOAT3(0, 0, 0);
 	m_scale		= XMFLOAT3(1, 1, 1);
+
+	anime.Load("asset\model\AgWalk.mfa");
 }
 
 void CPlayer::Uninit()
