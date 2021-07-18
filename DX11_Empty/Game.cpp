@@ -9,6 +9,9 @@
 #include "input.h"
 #include "Result.h"
 #include "manager.h"
+#include "audio.h"
+
+Audio* bgm;
 
 void Game::Init()
 {
@@ -26,6 +29,14 @@ void Game::Init()
 
 	//AddGameObject<CBullet>();
 
+	bgm = new Audio;
+
+	bgm->Init();
+
+	bgm->Load("asset/sound/bgm_cyber44.wav");
+
+	bgm->Play(true);
+
 	AddGameObject<CPolygon2D>(TWOD_OBJECT);
 	//AddGameObject<CExplosion>(THREED_OBJECT);
 }
@@ -37,4 +48,11 @@ void Game::Update()
 	if (Input::GetKeyTrigger(VK_RETURN)) {
 		Manager::GetInstance()->SetScene<Result>();
 	}
+}
+
+void Game::Uninit()
+{
+	CScene::Uninit();
+	bgm->Uninit();
+	delete bgm;
 }

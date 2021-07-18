@@ -7,4 +7,5 @@ class Game : public CScene
 public:
 	void Init();
 	void Update();
+	void Uninit();
 };

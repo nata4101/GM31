@@ -21,7 +21,9 @@ void CPlayer::Init()
 	m_rotation	= XMFLOAT3(0, 0, 0);
 	m_scale		= XMFLOAT3(1, 1, 1);
 
-	shot_sound = Manager::GetInstance()->GetScene()->AddGameObject<Audio>(CScene::THREED_OBJECT);
+	
+	shot_sound = new Audio;
+	shot_sound->Init();
 	shot_sound->Load("asset/sound/shoot.wav");
 }
 
