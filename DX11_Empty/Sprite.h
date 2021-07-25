@@ -15,7 +15,7 @@ public:
 	void SetResource(const char* file_name);
 
 private:
-	UINT texture_index = -1;
+	UINT texture_index = 0;
 	ID3D11Buffer*	m_VertexBuffer = nullptr;
 };
 

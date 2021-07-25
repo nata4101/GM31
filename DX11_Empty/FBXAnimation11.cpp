@@ -50,7 +50,16 @@ void CFbxAnimation::Load(const char * file_name)
 		for (int j = 0; j < m_meshes[i].m_vertexCount; j++) {
 			fread(&m_meshes[i].m_vertex[j].Position, sizeof(XMFLOAT3), 1, file);
 			fread(&m_meshes[i].m_vertex[j].Normal, sizeof(XMFLOAT3), 1, file);
-			//color Input
+			DWORD color;
+			fread(&color, sizeof(DWORD), 1, file);
+			m_meshes[i].m_vertex[j].Diffuse.w = (color >> 24) & 0xff;
+			m_meshes[i].m_vertex[j].Diffuse.w /= 255;
+			m_meshes[i].m_vertex[j].Diffuse.x = (color >> 16) & 0xff;
+			m_meshes[i].m_vertex[j].Diffuse.x /= 255;
+			m_meshes[i].m_vertex[j].Diffuse.y = (color >> 8) & 0xff;
+			m_meshes[i].m_vertex[j].Diffuse.y /= 255;
+			m_meshes[i].m_vertex[j].Diffuse.z = (color) & 0xff;
+			m_meshes[i].m_vertex[j].Diffuse.z /= 255;
 			fread(&m_meshes[i].m_vertex[j].TexCoord, sizeof(XMFLOAT2), 1, file);
 
 		}
@@ -84,7 +93,7 @@ void CFbxAnimation::Load(const char * file_name)
 		D3D11_BUFFER_DESC bd;
 		ZeroMemory(&bd, sizeof(bd));
 		bd.Usage = D3D11_USAGE_DEFAULT;
-		bd.ByteWidth = sizeof(unsigned int) * m_meshes[i].m_indexCount;
+		bd.ByteWidth = sizeof(WORD) * m_meshes[i].m_indexCount;
 		bd.BindFlags = D3D11_BIND_INDEX_BUFFER;
 		bd.CPUAccessFlags = 0;
 
@@ -133,12 +142,18 @@ void CFbxMesh::Draw(int flame, MATERIAL* mat, DXMatrix* mtx, int texture)
 	renderer->GetDeviceContext()->IASetVertexBuffers(0, 1, &m_vertexBuffer, &stride, &offset);
 
 	// インデックスバッファ設定
-	renderer->GetDeviceContext()->IASetIndexBuffer(m_indexBuffer, DXGI_FORMAT_R32_UINT, 0);
+	renderer->GetDeviceContext()->IASetIndexBuffer(m_indexBuffer, DXGI_FORMAT_R16_UINT, 0);
 
 	// プリミティブトポロジ設定
 	renderer->GetDeviceContext()->IASetPrimitiveTopology(D3D11_PRIMITIVE_TOPOLOGY_TRIANGLELIST);
 
-	renderer->SetMaterial(mat[m_materialIndex]);
+
+	MATERIAL material = {};
+	material.Ambient = DXVector4(0.1,0.1,0.1,1);
+	material.Diffuse = DXVector4(0.1, 0.1, 0.1,1);
+	material.Emission = mat[m_materialIndex].Ambient + mat[m_materialIndex].Diffuse;
+
+	renderer->SetMaterial(material);
 
 	ID3D11ShaderResourceView* tex = resource->GetTexture(texture);
 
@@ -146,9 +161,10 @@ void CFbxMesh::Draw(int flame, MATERIAL* mat, DXMatrix* mtx, int texture)
 
 	DXMatrix wld;
 
-	wld = *mtx * m_mtxLocal[flame];
+	wld = m_mtxLocal[flame] * *mtx;
 
 	renderer->SetWorldMatrix(&wld.GetMatrix());
 
 	renderer->GetDeviceContext()->DrawIndexed(m_indexCount, 0, 0);
 }
+

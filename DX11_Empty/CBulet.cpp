@@ -12,11 +12,11 @@ void CBullet::Init()
 {
 	model_index = CResourceManager::GetInstance()->LoadModelPac("asset\\model\\sphere\\sphere.obj");
 
-	m_position = XMFLOAT3(0, 1, 0);
+	m_position = XMFLOAT3(0, 1.f, 0);
 	m_rotation = XMFLOAT3(0, 0, 0);
-	m_scale = XMFLOAT3(0.2, 0.2, 0.2);
-	dir = XMFLOAT3(0, 0, 1);
-	speed = 0.1;
+	m_scale = XMFLOAT3(0.2f, 0.2f, 0.2f);
+	dir = XMFLOAT3(0, 0, 1.f);
+	speed = 0.1f;
 }
 
 void CBullet::Uninit()

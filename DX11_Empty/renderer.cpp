@@ -208,7 +208,7 @@ void Renderer::Init()
 	light.Direction = XMVectorSet(1.0f, -1.0f, 1.0f, 0.0f);
 	light.Direction = XMVector4Normalize(light.Direction.GetVector());
 	light.Ambient = XMFLOAT4(0.2f, 0.2f, 0.2f, 1.0f);
-	light.Diffuse = XMFLOAT4(1.0f, 1.0f, 1.0f, 1.0f);
+	light.Diffuse = XMFLOAT4(1.f, 1.f, 1.f, 1.f);
 	SetLight(light);
 
 

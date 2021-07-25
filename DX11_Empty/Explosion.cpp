@@ -78,12 +78,8 @@ void CExplosion::Draw()
 	//頂点データ書き換え
 	D3D11_MAPPED_SUBRESOURCE msr;
 	HRESULT hr  = renderer->GetDeviceContext()->Map(m_VertexBuffer, 0, D3D11_MAP_WRITE_DISCARD, 0, &msr);
-
-	if (FAILED(hr)) {
-		int c = 0;
-	}
 	
-	int now = m_count;
+	int now = (int)m_count;
 	float x, y;
 
 	x = (float)(now % 4) * 0.25f;
@@ -99,17 +95,17 @@ void CExplosion::Draw()
 	vertex[1].Position	= XMFLOAT3(1.0f, 1.0f, 0.0f);
 	vertex[1].Normal	= XMFLOAT3(0.0f, 1.0f, 0.0f);
 	vertex[1].Diffuse	= XMFLOAT4(1.0f, 1.0f, 1.0f, 1.0f);
-	vertex[1].TexCoord	= XMFLOAT2(x + 0.25, y);
+	vertex[1].TexCoord	= XMFLOAT2(x + 0.25f, y);
 				
 	vertex[2].Position	= XMFLOAT3(-1.0f, -1.0f, 0.0f);
 	vertex[2].Normal	= XMFLOAT3(0.0f, 1.0f, 0.0f);
 	vertex[2].Diffuse	= XMFLOAT4(1.0f, 1.0f, 1.0f, 1.0f);
-	vertex[2].TexCoord	= XMFLOAT2(x, y + 0.25);
+	vertex[2].TexCoord	= XMFLOAT2(x, y + 0.25f);
 				
 	vertex[3].Position	= XMFLOAT3(1.0f, -1.0f, 0.0f);
 	vertex[3].Normal	= XMFLOAT3(0.0f, 1.0f, 0.0f);
 	vertex[3].Diffuse	= XMFLOAT4(1.0f, 1.0f, 1.0f, 1.0f);
-	vertex[3].TexCoord	= XMFLOAT2(x + 0.25, y + 0.25);
+	vertex[3].TexCoord	= XMFLOAT2(x + 0.25f, y + 0.25f);
 
 	renderer->GetDeviceContext()->Unmap(m_VertexBuffer, 0);
 

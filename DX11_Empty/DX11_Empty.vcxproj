@@ -159,6 +159,7 @@
     <ClInclude Include="Camera.h" />
     <ClInclude Include="CBulet.h" />
     <ClInclude Include="DXMatrix.h" />
+    <ClInclude Include="DXQuaternion.h" />
     <ClInclude Include="DXVector.h" />
     <ClInclude Include="Enemy.h" />
     <ClInclude Include="Explosion.h" />

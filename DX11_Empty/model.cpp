@@ -33,6 +33,9 @@ void Model::Draw()
 		// テクスチャ設定
 		renderer->GetDeviceContext()->PSSetShaderResources( 0, 1, &m_SubsetArray[i].Material.Texture );
 
+		//ID3D11ShaderResourceView* tex = NULL;
+		//renderer->GetDeviceContext()->PSSetShaderResources(0, 1, &tex);
+
 		// ポリゴン描画
 		renderer->GetDeviceContext()->DrawIndexed( m_SubsetArray[i].IndexNum, m_SubsetArray[i].StartIndex, 0 );
 	}

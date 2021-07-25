@@ -19,12 +19,15 @@ void CPlayer::Init()
 
 	m_position	= XMFLOAT3(0, 0, 0);
 	m_rotation	= XMFLOAT3(0, 0, 0);
-	m_scale		= XMFLOAT3(1, 1, 1);
-
+	m_scale		= XMFLOAT3(2, 2, 2);
 	
 	shot_sound = new Audio;
 	shot_sound->Init();
 	shot_sound->Load("asset/sound/shoot.wav");
+
+	anime.Load("asset/model/AgWalk.mfa");
+	anime.SetTexture("asset/texture/white.png");
+
 }
 
 void CPlayer::Uninit()
@@ -70,7 +73,9 @@ void CPlayer::Draw()
 	//マトリクス設定
 	DXMatrix world;
 	world.SetTransform(m_position, m_rotation, m_scale);
-	renderer->SetWorldMatrix(&world.GetMatrix());
+	//renderer->SetWorldMatrix(&world.GetMatrix());
 
-	m_manager->GetModel(model_index)->Draw();
+	//m_manager->GetModel(model_index)->Draw();
+
+	anime.Draw(&world);
 }

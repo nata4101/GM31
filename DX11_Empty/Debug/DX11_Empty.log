@@ -1,2 +1,14 @@
+<<<<<<< HEAD
 ﻿  Game.cpp
   DX11_Empty.vcxproj -> C:\Users\Riki Takayanagi\source\repos\DX11Shader\Debug\DX11_Empty.exe
+=======
+﻿  FBXAnimation11.cpp
+c:\users\riki1\source\repos\gm31授業\dx11_empty\fbxanimation11.cpp(55): warning C4244: '=': 'DWORD' から 'float' への変換です。データが失われる可能性があります。
+c:\users\riki1\source\repos\gm31授業\dx11_empty\fbxanimation11.cpp(57): warning C4244: '=': 'DWORD' から 'float' への変換です。データが失われる可能性があります。
+c:\users\riki1\source\repos\gm31授業\dx11_empty\fbxanimation11.cpp(59): warning C4244: '=': 'DWORD' から 'float' への変換です。データが失われる可能性があります。
+c:\users\riki1\source\repos\gm31授業\dx11_empty\fbxanimation11.cpp(61): warning C4244: '=': 'DWORD' から 'float' への変換です。データが失われる可能性があります。
+c:\users\riki1\source\repos\gm31授業\dx11_empty\fbxanimation11.cpp(152): warning C4305: '引数': 'double' から 'float' へ切り詰めます。
+c:\users\riki1\source\repos\gm31授業\dx11_empty\fbxanimation11.cpp(153): warning C4305: '引数': 'double' から 'float' へ切り詰めます。
+c:\users\riki1\source\repos\gm31授業\dx11_empty\fbxanimation11.cpp(166): warning C4238: 非標準の拡張機能が使用されています: 右辺値のクラスが左辺値に使用されます。
+  DX11_Empty.vcxproj -> C:\Users\riki1\source\repos\GM31授業\Debug\DX11_Empty.exe
+>>>>>>> 29e142c0a287e856ff9f5b699a56a3b7b548a77a
