@@ -13,6 +13,7 @@ UINT  CPlayer::model_index;
 
 Audio* shot_sound;
 
+
 void CPlayer::Init()
 {
 	model_index = CResourceManager::GetInstance()->LoadModelPac("asset\\model\\test\\test.obj");
